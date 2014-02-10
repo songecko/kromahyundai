@@ -1,0 +1,4 @@
+hyundai_kroma:
+    resource: "@HyundaiKromaBundle/Resources/config/routing.yml"
+    prefix:   /
+

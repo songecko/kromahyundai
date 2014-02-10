@@ -1,0 +1,3 @@
+hyundai_kroma_homepage:
+    pattern:  /
+    defaults: { _controller: HyundaiKromaBundle:Default:index }
