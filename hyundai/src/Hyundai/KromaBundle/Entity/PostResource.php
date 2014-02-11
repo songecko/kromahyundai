@@ -2,6 +2,7 @@
 
 namespace Hyundai\KromaBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,7 +22,12 @@ class PostResource
     {
         return $this->id;
     }
-
+    
+    public function __construct()
+    {
+    	$this->createdAt = new DateTime('now');
+    }
+    
     public function setName($name)
     {
     	$this->name = $name;

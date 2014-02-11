@@ -2,6 +2,7 @@
 
 namespace Hyundai\KromaBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -58,9 +59,10 @@ class Post
         return $this->description;
     }
     
-    public function __construct()
+	public function __construct()
     {
         $this->resources = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->createdAt = new DateTime('now');
     }
 
     public function setCreatedAt($createdAt)
