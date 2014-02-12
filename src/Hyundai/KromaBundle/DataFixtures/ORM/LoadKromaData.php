@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Hyundai\KromaBundle\Entity\User;
 use Hyundai\KromaBundle\Entity\Post;
 use Hyundai\KromaBundle\Entity\PostResource;
 
@@ -43,6 +44,33 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     
     public function load(ObjectManager $manager)
     {
+    	$userAdmin = new User();
+    	$userAdmin->setUsername('admin');
+    	$userAdmin->setEmail('admin@hyundai.com');
+    	$userAdmin->setPlainPassword('123456');
+    	$userAdmin->setEnabled(true);
+    	$userAdmin->setRoles(array('ROLE_ADMIN'));
+    	
+    	$manager->persist($userAdmin);
+    	 
+    	$user1 = new User();
+    	$user1->setUsername('user1@hyundai.com');
+    	$user1->setEmail('user1@hyundai.com');
+    	$user1->setPlainPassword('123456');
+    	$user1->setEnabled(true);
+    	$user1->setRoles(array('ROLE_USER'));
+    	
+    	$manager->persist($user1);
+    	 
+    	$user2 = new User();
+    	$user2->setUsername('user2@hyundai.com');
+    	$user2->setEmail('user2@hyundai.com');
+    	$user2->setPlainPassword('12345678');
+    	$user2->setEnabled(true);
+    	$user2->setRoles(array('ROLE_USER'));
+    	 
+    	$manager->persist($user2);
+    	
     	$post = new Post();
     	$post->setTitle($this->faker->word);
     	$post->setDate(new \DateTime("now"));

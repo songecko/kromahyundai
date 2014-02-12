@@ -18,6 +18,7 @@ class AppKernel extends Kernel
         	new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
         	new FOS\RestBundle\FOSRestBundle(),
+        	new FOS\UserBundle\FOSUserBundle(),
         	new JMS\SerializerBundle\JMSSerializerBundle($this),
         	new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
         	new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),

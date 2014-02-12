@@ -33,7 +33,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [GeckoBackendBundle]
+    bundles:        [GeckoBackendBundle, FOSUserBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -74,3 +74,8 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Hyundai\KromaBundle\Entity\Post
+                
+fos_user:
+    db_driver: orm
+    firewall_name: admin
+    user_class: Hyundai\KromaBundle\Entity\User

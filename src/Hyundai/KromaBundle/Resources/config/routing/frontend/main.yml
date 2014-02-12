@@ -1,8 +1,11 @@
-anuncios_anuncio_login:
-    pattern: /login
-    defaults: { _controller: AnunciosAnuncioBundle:Frontend/Security:login }
+hyundai_kroma_login:
+    pattern:   /login
+    defaults:  { _controller: HyundaiKromaBundle:Frontend/Security:login }
     
-anuncios_anuncio_logout:
+hyundai_kroma_login_check:
+    pattern:   /login_check
+
+hyundai_kroma_logout:
     pattern: /logout
     defaults: { _controller: FosUserBundle:Security:logout }
 
