@@ -1,3 +1,0 @@
-hyundai_kroma_backend_post:
-    resource: @HyundaiKromaBundle/Resources/config/routing/backend/post.yml
-    prefix: /post
