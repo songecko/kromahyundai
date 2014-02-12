@@ -11,27 +11,19 @@
         "symfony/symfony": "2.3.*",
         "doctrine/orm": ">=2.2.3,<2.4-dev",
         "doctrine/doctrine-bundle": "1.2.*",
-<<<<<<< HEAD
         "doctrine/doctrine-fixtures-bundle" : "*",
 		"twig/extensions" : "1.*",
-=======
-        "twig/extensions": "1.0.*",
->>>>>>> cf493ad28f20edb6cc5d10a6cc8a1fcf51d620b2
         "symfony/assetic-bundle": "2.3.*",
         "symfony/swiftmailer-bundle": "2.3.*",
         "symfony/monolog-bundle": "2.3.*",
         "sensio/distribution-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
-<<<<<<< HEAD
         "incenteev/composer-parameter-handler": "~2.0",
         "fzaninotto/faker" : "1.2.*",
         "sylius/resource-bundle" : "0.5.*",
 		"raulfraile/ladybug-bundle" : "dev-master",
 		"knplabs/knp-menu-bundle" : "1.*"
-=======
-        "incenteev/composer-parameter-handler": "~2.0"
->>>>>>> cf493ad28f20edb6cc5d10a6cc8a1fcf51d620b2
     },
     "scripts": {
         "post-install-cmd": [

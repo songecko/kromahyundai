@@ -2,7 +2,6 @@ parameters:
 #    hyundai_kroma.example.class: Hyundai\KromaBundle\Example
 
 services:
-<<<<<<< HEAD
     hyundai_kroma.backend.menu_builder:
         class: Hyundai\KromaBundle\Menu\BackendMenuBuilder
         arguments: ["@knp_menu.factory"]
@@ -20,8 +19,3 @@ services:
         class: Hyundai\KromaBundle\Form\Type\PostType
         tags:
             - { name: form.type, alias: hyundai_post }
-=======
-#    hyundai_kroma.example:
-#        class: %hyundai_kroma.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
->>>>>>> cf493ad28f20edb6cc5d10a6cc8a1fcf51d620b2

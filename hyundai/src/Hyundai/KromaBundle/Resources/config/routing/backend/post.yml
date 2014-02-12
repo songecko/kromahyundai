@@ -1,0 +1,34 @@
+hyundai_kroma_backend_post_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: hyundai.controller.post:indexAction
+        _sylius:
+            template: HyundaiKromaBundle:Backend/Post:index.html.twig
+            paginate: 100
+            
+hyundai_kroma_backend_post_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: hyundai.controller.post:createAction
+        _sylius:
+            template: HyundaiKromaBundle:Backend/Post:create.html.twig
+            redirect: hyundai_kroma_backend_post_update
+
+hyundai_kroma_backend_post_update:
+    pattern: /{id}/edit
+    methods: [GET, PUT, POST]
+    defaults:
+        _controller: hyundai.controller.post:updateAction
+        _sylius:
+            template: HyundaiKromaBundle:Backend/Post:update.html.twig
+            redirect: hyundai_kroma_backend_post_update
+
+hyundai_kroma_backend_post_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: hyundai.controller.post:deleteAction
+        _sylius:
+            redirect: hyundai_kroma_backend_post_index

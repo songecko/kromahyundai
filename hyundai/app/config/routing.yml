@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 gecko_backend:
     resource: "@GeckoBackendBundle/Resources/config/routing/main.yml"
     prefix:   /admin
 
 hyundai_kroma:
     resource: "@HyundaiKromaBundle/Resources/config/routing/main.yml"
-=======
-hyundai_kroma:
-    resource: "@HyundaiKromaBundle/Resources/config/routing.yml"
->>>>>>> cf493ad28f20edb6cc5d10a6cc8a1fcf51d620b2
     prefix:   /
 

@@ -15,7 +15,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-<<<<<<< HEAD
         	new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
         	new FOS\RestBundle\FOSRestBundle(),
@@ -26,10 +25,6 @@ class AppKernel extends Kernel
         	new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Hyundai\KromaBundle\HyundaiKromaBundle(),
         	new Gecko\BackendBundle\GeckoBackendBundle(),
-=======
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Hyundai\KromaBundle\HyundaiKromaBundle(),
->>>>>>> cf493ad28f20edb6cc5d10a6cc8a1fcf51d620b2
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
