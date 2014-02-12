@@ -1,0 +1,40 @@
+Hyundai\KromaBundle\Entity\PostResource:
+    type: entity
+    table: post_resource
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        resource:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        createdAt:
+            column: created_at
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updatedAt:
+            column: updated_at
+            type: datetime
+            nullable: true
+            gedmo:
+              timestampable:
+                on: update
+    manyToOne:
+        post:
+            targetEntity: Post
+            inversedBy: resources
+            joinColumn:
+                name: post_id
+                referencedColumnName: id
+                onDelete: CASCADE
+    lifecycleCallbacks: {  }
