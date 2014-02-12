@@ -21,7 +21,9 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "fzaninotto/faker" : "1.2.*",
-        "raulfraile/ladybug-bundle" : "dev-master"
+        "sylius/resource-bundle" : "0.5.*",
+		"raulfraile/ladybug-bundle" : "dev-master",
+		"knplabs/knp-menu-bundle" : "1.*"
     },
     "scripts": {
         "post-install-cmd": [
