@@ -24,6 +24,10 @@ class AppKernel extends Kernel
         	new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
         	new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
         	new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+        	new Sonata\CoreBundle\SonataCoreBundle(),
+        	new Sonata\MediaBundle\SonataMediaBundle(),
+        	new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+        	new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Hyundai\KromaBundle\HyundaiKromaBundle(),
         	new Gecko\BackendBundle\GeckoBackendBundle(),
         );

@@ -5,4 +5,11 @@ gecko_backend:
 hyundai_kroma:
     resource: "@HyundaiKromaBundle/Resources/config/routing/main.yml"
     prefix:   /
+    
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /media/gallery
 
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media
