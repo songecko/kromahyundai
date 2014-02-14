@@ -1,5 +1,5 @@
 <?php
-namespace Gecko\NestleBundle\Menu;
+namespace Hyundai\KromaBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,14 +18,21 @@ class FrontendMenuBuilder
 
     public function createMainMenu(Request $request)
     {
-        $menu = $this->factory->createItem('root', array('childrenAttributes' => array('class' => 'nav navbar-nav')));
+        $menu = $this->factory->createItem('root', array(
+            'childrenAttributes' => array(
+                'class' => 'sidebar-menu'
+            )
+        ));
 
-        $menu->addChild('Inicio', array('route' => 'gecko_nestle_homepage'));
-        $menu->addChild('Momentos', array('route' => 'gecko_nestle_moments'));
-        $menu->addChild('Marcas', array('route' => 'gecko_nestle_brands'));
-        $menu->addChild('Queremos escucharte', array('route' => 'gecko_nestle_contact'));
-
-        $menu->setCurrentUri($request->getRequestUri());
+        $menu->addChild('dashboard', array(
+        		'route' => 'hyundai_kroma_dashboard',
+        		'labelAttributes' => array('icon' => 'fa-dashboard'),
+        ))->setLabel("Dashboard");
+        
+        $menu->addChild('post', array(
+        		'route' => 'hyundai_kroma_posts_index',
+        		'labelAttributes' => array('icon' => 'fa-th'),
+        ))->setLabel("Materiales");
         
         return $menu;
     }

@@ -1,14 +1,14 @@
-hyundai_kroma_login:
-    pattern:   /login
-    defaults:  { _controller: HyundaiKromaBundle:Frontend/Security:login }
-    
-hyundai_kroma_login_check:
-    pattern:   /login_check
-
-hyundai_kroma_logout:
-    pattern: /logout
-    defaults: { _controller: FosUserBundle:Security:logout }
-
 hyundai_kroma_index:
-    pattern:  /
-    defaults: { _controller: HyundaiKromaBundle:Frontend/Main:index }
+    pattern: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: hyundai_kroma_dashboard
+        permanent: true
+    
+hyundai_kroma_dashboard:
+    pattern: /dashboard
+    defaults: { _controller: HyundaiKromaBundle:Frontend/Main:dashboard }
+        
+hyundai_kroma_posts:
+    resource: @HyundaiKromaBundle/Resources/config/routing/frontend/post.yml
+    prefix: /posts

@@ -6,8 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class MainController extends Controller
 {
-    public function indexAction()
+    public function dashboardAction()
     {
-        return $this->render('HyundaiKromaBundle:Frontend/Main:index.html.twig');
+        return $this->render('HyundaiKromaBundle:Frontend/Main:dashboard.html.twig');
     }
 }

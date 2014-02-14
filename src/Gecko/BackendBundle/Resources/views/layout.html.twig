@@ -1,82 +1,66 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-        {% block title %}
-			{{ 'gecko.backend.meta.title'|trans }}
-		{% endblock %}
-		</title>
-        <meta charset="UTF-8">        
-
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
-
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/geckonestle/images/favicon.png') }}" />
+        <meta charset="UTF-8">
+        <title>Panel de administración</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         
         {% block stylesheets %}
-            {% stylesheets output='admin/css/backend.min.css' filter='cssrewrite'
-                '//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.css'
-                '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
+            {% stylesheets output='css/backend.min.css' filter='cssrewrite'
+                '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'
+                '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'
+                'http://code.ionicframework.com/ionicons/1.4.1/css/ionicons.min.css'
+                '@GeckoBackendBundle/Resources/assets/css/AdminLTE.css'
                 '@GeckoBackendBundle/Resources/assets/css/backend.css'
-                '@GeckoBackendBundle/Resources/assets/css/blueimp-gallery.css'
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
         {% endblock %}
 
-        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body>
-        {% include 'GeckoBackendBundle::_navbar.html.twig' %}
-        <div class="row main-container">
-            <div class="col-md-2 hidden-sm hidden-xs">
-                {% block sidebar %}
-                <div id="sidebar">
-                    <div class="sidebar-nav">
-                        {{ knp_menu_render('backend_main_menu', {'template': 'GeckoBackendBundle::menu.html.twig', 'currentClass': 'active'}) }}
-                    </div>
-                </div>
-                {% endblock %}
-            </div>
-            <div class="col-md-10">
-                <div id="topbar">
-                    {% block topbar %}
-                    {% include 'GeckoBackendBundle::_breadcrumb.html.twig' %}
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        {{ include('GeckoBackendBundle:Layout:header.html.twig') }}
+        
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            {{ include('GeckoBackendBundle:Layout:sidebar.html.twig') }}
+            
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+            	<!-- Content Header (Page header) -->
+                <section class="content-header">
+                	{% block section_title %}<h1>&nbsp;</h1>{% endblock %}
+					
+                	{% block breadcrums %}
+                    <ol class="breadcrumb">
+                        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    </ol>
                     {% endblock %}
-                </div>
-                <div id="content">
-                {% include 'GeckoBackendBundle::_flashes.html.twig' %}
+                </section>
 
-                {% block content %}
-                {% endblock %}
-
-                <hr>
-
-                {# Gallery modal #}
-                {% include 'GeckoBackendBundle::gallery.html.twig' %}
-
-                {# Confirmation modal #}
-                {% include 'GeckoBackendBundle::confirm-modal.html.twig' %}
-
-                <footer>
-                    <p>&copy; Hyundai, {{ 'now'|date('Y') }}.</p>
-                </footer>
-                </div>
-            </div>
-        </div>
-
+                <!-- Main content -->
+                <section class="content">
+                	{% include 'GeckoBackendBundle:Layout:flashes.html.twig' %}
+	                {% block content %}
+	                {% endblock %}
+	            </section><!-- /.content -->
+			 </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+        
         {# javascripts... #}
         {% block javascripts %}
-        {% javascripts output='admin/css/backend.min.js'
-            '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
-            '//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js'
-            '@GeckoBackendBundle/Resources/assets/js/jquery.blueimp-gallery.min.js'
-            '@GeckoBackendBundle/Resources/assets/js/confirm-modal.js'
-            '@GeckoBackendBundle/Resources/assets/js/form-collection.js'
-            '@GeckoBackendBundle/Resources/assets/js/form-spinner.js'
-            '@GeckoBackendBundle/Resources/assets/js/select2.js'
+        {% javascripts output='js/backend.min.js'
+            '//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js'
+            '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
+            '@GeckoBackendBundle/Resources/assets/js/AdminLTE/app.js'
             '@GeckoBackendBundle/Resources/assets/js/backend.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>

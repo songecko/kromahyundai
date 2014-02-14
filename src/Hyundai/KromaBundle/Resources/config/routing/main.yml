@@ -1,10 +1,6 @@
 hyundai_kroma_frontend:
     resource: @HyundaiKromaBundle/Resources/config/routing/frontend/main.yml
     
-hyundai_kroma_backend:
-    resource: @HyundaiKromaBundle/Resources/config/routing/backend/main.yml
-    prefix:   /admin
-    
 #_imagine:
 #    resource: .
 #    type:     imagine

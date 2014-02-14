@@ -1,0 +1,37 @@
+{% macro list(posts) %}
+
+{% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
+{% import 'GeckoBackendBundle:Macros:alerts.html.twig' as alerts %}
+{% import 'GeckoBackendBundle:Macros:misc.html.twig' as misc %}
+
+{% if posts|length > 0 %}
+<div class="box">
+	<div class="box-body table-responsive no-padding">
+		<table class="table table-hover"><tbody>
+			<tr>
+				<th>ID</th>
+				<th>Título</th>
+				<th>Fecha</th>
+				<th></th>
+			</tr>
+			{% for post in posts %}
+	        <tr>
+				<td>{{ post.id }}</td>
+				<td>{{ post.title }}</td>
+				<td>{{ post.date|date('d-m-Y') }}</td>
+				<td>
+					<div class="pull-right">
+	                    {{ buttons.edit(path('hyundai_kroma_posts_update', {'id': post.id})) }}
+	                    {{ buttons.delete(path('hyundai_kroma_posts_delete', {'id': post.id})) }}
+	                </div>
+				</td>
+			</tr>
+	        {% endfor %}
+		</tbody></table>
+	</div>
+</div>
+{% else %}
+{{ alerts.info('gecko.backend.no_results'|trans) }}
+{% endif %}
+
+{% endmacro %}

@@ -39,14 +39,14 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     
     public function getOrder()
     {
-    	return 4;
+    	return 1;
     }    
     
     public function load(ObjectManager $manager)
     {
     	$userAdmin = new User();
     	$userAdmin->setUsername('admin');
-    	$userAdmin->setEmail('admin@hyundai.com');
+    	$userAdmin->setEmail('admin@kromahyundai.com');
     	$userAdmin->setPlainPassword('123456');
     	$userAdmin->setEnabled(true);
     	$userAdmin->setRoles(array('ROLE_ADMIN'));
@@ -54,8 +54,8 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	$manager->persist($userAdmin);
     	 
     	$user1 = new User();
-    	$user1->setUsername('user1@hyundai.com');
-    	$user1->setEmail('user1@hyundai.com');
+    	$user1->setUsername('cliente1');
+    	$user1->setEmail('cliente1@kromahyundai.com');
     	$user1->setPlainPassword('123456');
     	$user1->setEnabled(true);
     	$user1->setRoles(array('ROLE_USER'));
@@ -63,9 +63,9 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	$manager->persist($user1);
     	 
     	$user2 = new User();
-    	$user2->setUsername('user2@hyundai.com');
-    	$user2->setEmail('user2@hyundai.com');
-    	$user2->setPlainPassword('12345678');
+    	$user2->setUsername('cliente2');
+    	$user2->setEmail('cliente2@kromahyundai.com');
+    	$user2->setPlainPassword('123456');
     	$user2->setEnabled(true);
     	$user2->setRoles(array('ROLE_USER'));
     	 

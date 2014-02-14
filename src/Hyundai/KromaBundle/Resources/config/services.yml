@@ -2,13 +2,13 @@ parameters:
 #    hyundai_kroma.example.class: Hyundai\KromaBundle\Example
 
 services:
-    hyundai_kroma.backend.menu_builder:
-        class: Hyundai\KromaBundle\Menu\BackendMenuBuilder
+    hyundai_kroma.frontend.menu_builder:
+        class: Hyundai\KromaBundle\Menu\FrontendMenuBuilder
         arguments: ["@knp_menu.factory"]
         
-    hyundai_kroma.backend.menu.main:
+    hyundai_kroma.frontend.menu.main:
         class: Knp\Menu\MenuItem # the service definition requires setting the class
-        factory_service: hyundai_kroma.backend.menu_builder
+        factory_service: hyundai_kroma.frontend.menu_builder
         factory_method: createMainMenu
         arguments: ["@request"]
         scope: request # needed as we have the request as a dependency here
