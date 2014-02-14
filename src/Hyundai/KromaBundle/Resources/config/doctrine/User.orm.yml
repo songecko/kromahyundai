@@ -8,7 +8,13 @@ Hyundai\KromaBundle\Entity\User:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        firstName:
+            column: first_name
+            type: string
+            length: 255
+            nullable: true
+        lastName:
+            column: last_name
             type: string
             length: 255
             nullable: true
@@ -25,4 +31,8 @@ Hyundai\KromaBundle\Entity\User:
             gedmo:
               timestampable:
                 on: update
+    attributeOverride:     
+        password:
+            type: string  
+            nullable: true
     lifecycleCallbacks: {  }

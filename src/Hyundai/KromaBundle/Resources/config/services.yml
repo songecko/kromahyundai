@@ -19,3 +19,8 @@ services:
         class: Hyundai\KromaBundle\Form\Type\PostType
         tags:
             - { name: form.type, alias: hyundai_post }
+            
+    hyundai.form.type.user:
+        class: Hyundai\KromaBundle\Form\Type\UserType
+        tags:
+            - { name: form.type, alias: hyundai_user }

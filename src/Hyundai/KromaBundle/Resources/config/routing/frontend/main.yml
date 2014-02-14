@@ -12,3 +12,7 @@ hyundai_kroma_dashboard:
 hyundai_kroma_posts:
     resource: @HyundaiKromaBundle/Resources/config/routing/frontend/post.yml
     prefix: /posts
+    
+hyundai_kroma_user:
+    resource: @HyundaiKromaBundle/Resources/config/routing/frontend/user.yml
+    prefix: /user

@@ -5,6 +5,11 @@
 	<div class="header">Panel de Administración</div>
 	<form action="{{ path('fos_user_security_check') }}" method="post">
 		<div class="body bg-gray">
+			{% if error %}
+    			<div class="alert alert-danger">
+					{{ error|trans({}, 'FOSUserBundle') }}
+    			</div>
+    		{% endif %}
 			<div class="form-group">
 				<input type="text" name="_username" class="form-control" placeholder="Usuario"/>
 			</div>

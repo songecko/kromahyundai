@@ -12,7 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     protected $id;
-    private $name;
+    private $firstName;
+    private $lastName;
     private $createdAt;
     private $updatedAt;
 
@@ -22,6 +23,8 @@ class User extends BaseUser
         $this->createdAt = new DateTime('now');
         
         parent::__construct();
+        $this->setEnabled(true);
+        $this->addRole('ROLE_USER');
     }
     
     public function getId()
@@ -29,16 +32,33 @@ class User extends BaseUser
         return $this->id;
     }
 
-    public function setName($name)
+    public function setFirstName($firstName)
     {
-        $this->name = $name;
+        $this->firstName = $firstName;
     
         return $this;
     }
 
-    public function getName()
+    public function getFirstName()
     {
-        return $this->name;
+        return $this->firstName;
+    }
+    
+    public function setLastName($lastName)
+    {
+    	$this->lastName = $lastName;
+    
+    	return $this;
+    }
+    
+    public function getLastName()
+    {
+    	return $this->lastName;
+    }
+    
+    public function getFullname()
+    {
+    	return $this->getFirstName().' '.$this->getLastName();
     }
 
     public function setCreatedAt($createdAt)
