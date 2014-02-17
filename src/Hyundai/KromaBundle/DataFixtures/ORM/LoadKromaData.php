@@ -12,8 +12,8 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Hyundai\KromaBundle\Entity\User;
-use Hyundai\KromaBundle\Entity\Post;
-use Hyundai\KromaBundle\Entity\PostResource;
+use Hyundai\KromaBundle\Entity\Brand;
+use Hyundai\KromaBundle\Entity\BrandResourceCategory;
 
 class LoadKromaData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
@@ -44,41 +44,45 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     
     public function load(ObjectManager $manager)
     {
+    	/** USERS **/
     	$userAdmin = new User();
     	$userAdmin->setUsername('admin');
     	$userAdmin->setEmail('admin@kromahyundai.com');
     	$userAdmin->setPlainPassword('123456');
     	$userAdmin->setEnabled(true);
-    	$userAdmin->setRoles(array('ROLE_ADMIN'));
-    	
+    	$userAdmin->setRoles(array('ROLE_ADMIN'));    	
     	$manager->persist($userAdmin);
     	 
     	$user1 = new User();
-    	$user1->setUsername('cliente1');
-    	$user1->setEmail('cliente1@kromahyundai.com');
+    	$user1->setUsername('cliente');
+    	$user1->setEmail('cliente@kromahyundai.com');
     	$user1->setPlainPassword('123456');
     	$user1->setEnabled(true);
-    	$user1->setRoles(array('ROLE_USER'));
-    	
+    	$user1->setRoles(array('ROLE_USER'));    	
     	$manager->persist($user1);
-    	 
-    	$user2 = new User();
-    	$user2->setUsername('cliente2');
-    	$user2->setEmail('cliente2@kromahyundai.com');
-    	$user2->setPlainPassword('123456');
-    	$user2->setEnabled(true);
-    	$user2->setRoles(array('ROLE_USER'));
-    	 
-    	$manager->persist($user2);
     	
-    	$post = new Post();
-    	$post->setTitle($this->faker->word);
-    	$post->setDate(new \DateTime("now"));
-    	$post->setDescription($this->faker->text);
+    	/** BRAND RESOURCE CATEGORIES **/
+    	$brCatTV = new BrandResourceCategory();
+    	$brCatTV->setName('TV');
+    	$manager->persist($brCatTV);
     	
-    	$manager->persist($post);
+    	$brCatPrint = new BrandResourceCategory();
+    	$brCatPrint->setName('Print');
+    	$manager->persist($brCatPrint);
     	
-    	for($i=1;$i<5;$i++)
+    	$brCatPhotos = new BrandResourceCategory();
+    	$brCatPhotos->setName('Photos');
+    	$manager->persist($brCatPhotos);
+    	
+    	/** BRANDS **/
+    	$brand = new Brand();
+    	$brand->setTitle($this->faker->word);
+    	$brand->setDate(new \DateTime("now"));
+    	$brand->setDescription($this->faker->text);
+    	
+    	$manager->persist($brand);
+    	
+    	/*for($i=1;$i<5;$i++)
     	{
     		$resource = new PostResource();
     		$resource->setPost($post);
@@ -87,7 +91,7 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     		$resource->setResource('imagen'.$i);
     		
     		$manager->persist($resource);
-    	}
+    	}*/
     	
     	$manager->flush();
     }

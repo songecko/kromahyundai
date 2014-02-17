@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PostType extends AbstractType
+class BrandType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -33,6 +33,6 @@ class PostType extends AbstractType
 
     public function getName()
     {
-        return 'hyundai_post';
+        return 'hyundai_brand';
     }
 }

@@ -1,6 +1,6 @@
 {% extends 'GeckoBackendBundle::layout.html.twig' %}
 
-{% from 'SyliusResourceBundle:Macros:actions.html.twig' import update %}
+{% from 'SyliusResourceBundle:Macros:actions.html.twig' import create %}
 
 {% block section_title %}
 <h1>Materiales</h1>
@@ -10,7 +10,7 @@
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 	<li>Materiales</li>
-	<li class="active">Editar</li>
+	<li class="active">Nuevo</li>
 </ol>
 {% endblock %}
 
@@ -18,14 +18,13 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="box">
-			<form action="{{ path('hyundai_kroma_posts_update', {'id': post.id}) }}" method="post" enctype="multipart/form-data">
+			<form action="{{ path('hyundai_kroma_brand_create', {'id': brand.id}) }}" method="post" enctype="multipart/form-data">
 				<div class="box-body">
 					{{ form_errors(form) }}		
-		    		<input type="hidden" name="_method" value="PUT">
-		    		{% include 'HyundaiKromaBundle:Frontend/Post:_form.html.twig' %}
+		    		{% include 'HyundaiKromaBundle:Frontend/Brand:_form.html.twig' %}
 				</div>
 				<div class="box-footer">
-					{{ update() }}
+					{{ create() }}
 				</div>
 			</form>
 		</div>

@@ -30,7 +30,7 @@ class FrontendMenuBuilder
         ))->setLabel("Dashboard");
         
         $menu->addChild('post', array(
-        		'route' => 'hyundai_kroma_posts_index',
+        		'route' => 'hyundai_kroma_brand_index',
         		'labelAttributes' => array('icon' => 'fa-th'),
         ))->setLabel("Materiales");
         

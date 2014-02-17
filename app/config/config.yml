@@ -70,10 +70,10 @@ swiftmailer:
 
 sylius_resource:
     resources:
-        hyundai.post:
+        hyundai.brand:
             driver: doctrine/orm
             classes:
-                model: Hyundai\KromaBundle\Entity\Post
+                model: Hyundai\KromaBundle\Entity\Brand
         hyundai.user:
             driver: doctrine/orm
             classes:

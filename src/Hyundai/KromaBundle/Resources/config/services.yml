@@ -15,10 +15,10 @@ services:
         tags:
             - { name: knp_menu.menu, alias: backend_main_menu } # The alias is what is used to retrieve the menu
             
-    hyundai.form.type.post:
-        class: Hyundai\KromaBundle\Form\Type\PostType
+    hyundai.form.type.brand:
+        class: Hyundai\KromaBundle\Form\Type\BrandType
         tags:
-            - { name: form.type, alias: hyundai_post }
+            - { name: form.type, alias: hyundai_brand }
             
     hyundai.form.type.user:
         class: Hyundai\KromaBundle\Form\Type\UserType

@@ -2,7 +2,7 @@
 
 {% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
 {% from 'GeckoBackendBundle:Macros:misc.html.twig' import pagination %}
-{% from 'HyundaiKromaBundle:Frontend/Post:macros.html.twig' import list  %}
+{% from 'HyundaiKromaBundle:Frontend/Brand:macros.html.twig' import list  %}
 
 {% block section_title %}
 <h1>Materiales</h1>
@@ -17,10 +17,10 @@
 
 {% block content %}
 <h2 class="page-header">
-	{{ buttons.create(path('hyundai_kroma_posts_create'), 'Nuevo') }}
+	{{ buttons.create(path('hyundai_kroma_brand_create'), 'Nuevo') }}
 </h2>
 
-{{ list(posts)  }}
-{{ pagination(posts) }}
+{{ list(brands)  }}
+{{ pagination(brands) }}
 
 {% endblock %}

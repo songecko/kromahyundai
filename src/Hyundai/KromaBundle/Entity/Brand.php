@@ -6,9 +6,9 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Post
+ * Brand
  */
-class Post
+class Brand
 {
     private $id;
     private $title;
@@ -17,47 +17,6 @@ class Post
     private $resources;
     private $createdAt;
     private $updatedAt;
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    
-        return $this;
-    }
-
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    public function setDate($date)
-    {
-        $this->date = $date;
-    
-        return $this;
-    }
-
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    
-        return $this;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
     
 	public function __construct()
     {
@@ -65,6 +24,47 @@ class Post
         $this->createdAt = new DateTime('now');
     }
 
+    public function getId()
+    {
+    	return $this->id;
+    }
+    
+    public function setTitle($title)
+    {
+    	$this->title = $title;
+    
+    	return $this;
+    }
+    
+    public function getTitle()
+    {
+    	return $this->title;
+    }
+    
+    public function setDate($date)
+    {
+    	$this->date = $date;
+    
+    	return $this;
+    }
+    
+    public function getDate()
+    {
+    	return $this->date;
+    }
+    
+    public function setDescription($description)
+    {
+    	$this->description = $description;
+    
+    	return $this;
+    }
+    
+    public function getDescription()
+    {
+    	return $this->description;
+    }
+    
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
@@ -89,16 +89,16 @@ class Post
         return $this->updatedAt;
     }
 
-    public function addResource(\Hyundai\KromaBundle\Entity\PostResource $resources)
+    public function addResource(BrandResource $resource)
     {
-        $this->resources[] = $resources;
+        $this->resources[] = $resource;
     
         return $this;
     }
 
-    public function removeResource(\Hyundai\KromaBundle\Entity\PostResource $resources)
+    public function removeResource(BrandResource $resource)
     {
-        $this->resources->removeElement($resources);
+        $this->resources->removeElement($resource);
     }
 
     public function getResources()

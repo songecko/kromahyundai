@@ -6,15 +6,13 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PostResource
+ * BrandResourceCategory
  */
-class PostResource
+class BrandResourceCategory
 {
     private $id;
     private $name;
-    private $resource;
-    private $type;
-    private $post;
+    private $resources;
     private $createdAt;
     private $updatedAt;
 
@@ -25,6 +23,7 @@ class PostResource
     
     public function __construct()
     {
+    	$this->resources = new \Doctrine\Common\Collections\ArrayCollection();
     	$this->createdAt = new DateTime('now');
     }
     
@@ -39,41 +38,22 @@ class PostResource
     {
     	return $this->name;
     }
+        
+    public function addResource(BrandResource $resource)
+    {
+    	$this->resources[] = $resource;
     
-    public function setResource($resource)
-    {
-        $this->resource = $resource;
+    	return $this;
+    }
     
-        return $this;
-    }
-
-    public function getResource()
+    public function removeResource(BrandResource $resource)
     {
-        return $this->resource;
+    	$this->resources->removeElement($resource);
     }
-
-    public function setType($type)
-    {
-        $this->type = $type;
     
-        return $this;
-    }
-
-    public function getType()
+    public function getResources()
     {
-        return $this->type;
-    }
-
-    public function setPost(\Hyundai\KromaBundle\Entity\Post $post = null)
-    {
-        $this->post = $post;
-    
-        return $this;
-    }
-
-    public function getPost()
-    {
-        return $this->post;
+    	return $this->resources;
     }
     
     public function setCreatedAt($createdAt)

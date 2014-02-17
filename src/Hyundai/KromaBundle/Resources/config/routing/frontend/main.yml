@@ -9,9 +9,9 @@ hyundai_kroma_dashboard:
     pattern: /dashboard
     defaults: { _controller: HyundaiKromaBundle:Frontend/Main:dashboard }
         
-hyundai_kroma_posts:
-    resource: @HyundaiKromaBundle/Resources/config/routing/frontend/post.yml
-    prefix: /posts
+hyundai_kroma_brand:
+    resource: @HyundaiKromaBundle/Resources/config/routing/frontend/brand.yml
+    prefix: /brands
     
 hyundai_kroma_user:
     resource: @HyundaiKromaBundle/Resources/config/routing/frontend/user.yml

@@ -1,0 +1,46 @@
+Hyundai\KromaBundle\Entity\BrandResource:
+    type: entity
+    table: brand_resource
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        resource:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        createdAt:
+            column: created_at
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updatedAt:
+            column: updated_at
+            type: datetime
+            nullable: true
+            gedmo:
+              timestampable:
+                on: update
+    manyToOne:
+        brand:
+            targetEntity: Brand
+            inversedBy: resources
+            joinColumn:
+                name: brand_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        category:
+            targetEntity: BrandResourceCategory
+            inversedBy: resources
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+                onDelete: CASCADE

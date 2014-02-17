@@ -1,19 +1,15 @@
-Hyundai\KromaBundle\Entity\Post:
+Hyundai\KromaBundle\Entity\BrandResourceCategory:
     type: entity
-    table: post
+    table: brand_resource_category
     fields:
         id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
-        title:
+        name:
             type: string
             length: 255
-        date:
-            type: date
-        description:
-            type: text
         createdAt:
             column: created_at
             type: datetime
@@ -27,8 +23,3 @@ Hyundai\KromaBundle\Entity\Post:
             gedmo:
               timestampable:
                 on: update
-    oneToMany:
-        resources:
-            targetEntity: PostResource
-            mappedBy: post
-    lifecycleCallbacks: {  }
