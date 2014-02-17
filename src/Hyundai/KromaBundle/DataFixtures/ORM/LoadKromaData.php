@@ -8,12 +8,14 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Faker\Factory as FakerFactory;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Hyundai\KromaBundle\Entity\User;
 use Hyundai\KromaBundle\Entity\Brand;
 use Hyundai\KromaBundle\Entity\BrandResourceCategory;
+use Hyundai\KromaBundle\Entity\BrandResource;
 
 class LoadKromaData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
@@ -82,16 +84,36 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	
     	$manager->persist($brand);
     	
-    	/*for($i=1;$i<5;$i++)
-    	{
-    		$resource = new PostResource();
-    		$resource->setPost($post);
-    		$resource->setName($this->faker->word);
-    		$resource->setType('image');
-    		$resource->setResource('imagen'.$i);
+    	/** BRAND RESOURCES **/
+    	$path = $this->container->getParameter('kernel.root_dir').'/../web/fixtures/images/prueba.jpg';
+    	$file = new File($path);
+    	
+    	$brResCatTV = new BrandResource();
+    	$brResCatTV->setCategory($brCatTV);
+    	$brResCatTV->setBrand($brand);
+    	$brResCatTV->setName($this->faker->word);
+    	$brResCatTV->setResource($file);
+    	$brResCatTV->setType('image');
     		
-    		$manager->persist($resource);
-    	}*/
+    	$manager->persist($brResCatTV);
+    	
+    	$brResCatPrint = new BrandResource();
+    	$brResCatPrint->setCategory($brCatPrint);
+    	$brResCatPrint->setBrand($brand);
+    	$brResCatPrint->setName($this->faker->word);
+    	$brResCatPrint->setResource($file);
+    	$brResCatPrint->setType('image');
+    	
+    	$manager->persist($brResCatPrint);
+    	
+    	$brResCatPhotos = new BrandResource();
+    	$brResCatPhotos->setCategory($brCatPhotos);
+    	$brResCatPhotos->setBrand($brand);
+    	$brResCatPhotos->setName($this->faker->word);
+    	$brResCatPhotos->setResource($file);
+    	$brResCatPhotos->setType('image');
+    	
+    	$manager->persist($brResCatPhotos);
     	
     	$manager->flush();
     }
