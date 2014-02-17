@@ -105,4 +105,9 @@ class Brand
     {
         return $this->resources;
     }
+    
+    public function __toString()
+    {
+    	return $this->getTitle();
+    }
 }

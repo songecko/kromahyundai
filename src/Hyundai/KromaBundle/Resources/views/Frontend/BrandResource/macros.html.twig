@@ -1,30 +1,28 @@
-{% macro list(brands) %}
+{% macro list(brandresources) %}
 
 {% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
 {% import 'GeckoBackendBundle:Macros:alerts.html.twig' as alerts %}
 {% import 'GeckoBackendBundle:Macros:misc.html.twig' as misc %}
 
-{% if brands|length > 0 %}
+{% if brandresources|length > 0 %}
 <div class="box">
 	<div class="box-body table-responsive no-padding">
 		<table class="table table-hover"><tbody>
 			<tr>
 				<th>ID</th>
-				<th>Título</th>
-				<th>Fecha</th>
-				<th>Recursos</th>
+				<th>Categoria</th>
+				<th>Nombre</th>
 				<th></th>
 			</tr>
-			{% for brand in brands %}
+			{% for brandresource in brandresources %}
 	        <tr>
-				<td>{{ brand.id }}</td>
-				<td>{{ brand.title }}</td>
-				<td>{{ brand.date|date('d-m-Y') }}</td>
-				<td><a href="{{ path('hyundai_kroma_brandresource_index', {'brand_id': brand.id}) }}">Administrar recursos</a></td>
+				<td>{{ brandresource.id }}</td>
+				<td>{{ brandresource.category }}</td>
+				<td>{{ brandresource.name }}</td>
 				<td>
 					<div class="pull-right">
-	                    {{ buttons.edit(path('hyundai_kroma_brand_update', {'id': brand.id})) }}
-	                    {{ buttons.delete(path('hyundai_kroma_brand_delete', {'id': brand.id})) }}
+	                    {{ buttons.edit(path('hyundai_kroma_brandresource_update', {'brand_id': brandresource.brand.id, 'id': brandresource.id})) }}
+	                    {{ buttons.delete(path('hyundai_kroma_brandresource_delete', {'brand_id': brandresource.brand.id, 'id': brandresource.id})) }}
 	                </div>
 				</td>
 			</tr>
