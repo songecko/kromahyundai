@@ -4,6 +4,7 @@ namespace Hyundai\KromaBundle\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * BrandResource
@@ -13,6 +14,7 @@ class BrandResource
     private $id;
     private $name;
     private $resource;
+    private $file;
     private $category;
     private $type;
     private $brand;
@@ -63,6 +65,25 @@ class BrandResource
     public function getResource()
     {
         return $this->resource;
+    }
+    
+    public function hasFile()
+    {
+    	return null !== $this->file;
+    }
+    
+    public function getFile()
+    {
+    	return $this->file;
+    }
+    
+    public function setFile(File $file)
+    {
+    	$this->file = $file;
+    	 
+    	if ($this->resource) {
+    		$this->setUpdatedAt(new \DateTime('now'));
+    	}
     }
 
     public function setType($type)

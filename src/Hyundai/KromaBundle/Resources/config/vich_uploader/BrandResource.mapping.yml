@@ -1,0 +1,4 @@
+Hyundai\KromaBundle\Entity\BrandResource:
+    file:
+        mapping:           resources
+        filename_property: resource

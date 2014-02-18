@@ -1,6 +1,6 @@
 hyundai_kroma_frontend:
     resource: @HyundaiKromaBundle/Resources/config/routing/frontend/main.yml
     
-#_imagine:
-#    resource: .
-#    type:     imagine
+_imagine:
+    resource: .
+    type:     imagine

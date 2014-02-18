@@ -13,6 +13,7 @@ Hyundai\KromaBundle\Entity\BrandResource:
         resource:
             type: string
             length: 255
+            nullable: true
         type:
             type: string
             length: 255
