@@ -12,6 +12,7 @@
 				<th>ID</th>
 				<th>Categoria</th>
 				<th>Nombre</th>
+				<th>Tipo</th>
 				<th></th>
 			</tr>
 			{% for brandresource in brandresources %}
@@ -19,6 +20,11 @@
 				<td>{{ brandresource.id }}</td>
 				<td>{{ brandresource.category }}</td>
 				<td>{{ brandresource.name }}</td>
+				{% if(brandresource.type == 'image') %}
+				<td>Imagen</td>
+				{% else %}
+				<td>Video</td>
+				{% endif %}
 				<td>
 					<div class="pull-right">
 	                    {{ buttons.edit(path('hyundai_kroma_brandresource_update', {'brand_id': brandresource.brand.id, 'id': brandresource.id})) }}

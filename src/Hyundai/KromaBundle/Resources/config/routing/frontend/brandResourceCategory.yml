@@ -1,0 +1,34 @@
+hyundai_kroma_brandresourcecategory_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: hyundai.controller.brandresourcecategory:indexAction
+        _sylius:
+            template: HyundaiKromaBundle:Frontend/BrandResourceCategory:index.html.twig
+            paginate: 100
+            
+hyundai_kroma_brandresourcecategory_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: hyundai.controller.brandresourcecategory:createAction
+        _sylius:
+            template: HyundaiKromaBundle:Frontend/BrandResourceCategory:create.html.twig
+            redirect: hyundai_kroma_brandresourcecategory_update
+
+hyundai_kroma_brandresourcecategory_update:
+    pattern: /{id}/edit
+    methods: [GET, PUT, POST]
+    defaults:
+        _controller: hyundai.controller.brandresourcecategory:updateAction
+        _sylius:
+            template: HyundaiKromaBundle:Frontend/BrandResourceCategory:update.html.twig
+            redirect: hyundai_kroma_brandresourcecategory_update
+
+hyundai_kroma_brandresourcecategory_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: hyundai.controller.brandresourcecategory:deleteAction
+        _sylius:
+            redirect: hyundai_kroma_brandresourcecategory_index

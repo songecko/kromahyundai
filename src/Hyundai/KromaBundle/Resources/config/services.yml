@@ -19,6 +19,11 @@ services:
         class: Hyundai\KromaBundle\Form\Type\BrandType
         tags:
             - { name: form.type, alias: hyundai_brand }
+    
+    hyundai.form.type.brandresourcecategory:
+        class: Hyundai\KromaBundle\Form\Type\BrandResourceCategoryType
+        tags:
+            - { name: form.type, alias: hyundai_brandresourcecategory }
             
     hyundai.form.type.brandresource:
         class: Hyundai\KromaBundle\Form\Type\BrandResourceType

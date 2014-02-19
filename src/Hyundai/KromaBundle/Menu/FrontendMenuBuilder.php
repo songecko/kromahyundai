@@ -29,11 +29,16 @@ class FrontendMenuBuilder
         		'labelAttributes' => array('icon' => 'fa-dashboard'),
         ))->setLabel("Dashboard");
         
+        $menu->addChild('category', array(
+        		'route' => 'hyundai_kroma_brandresourcecategory_index',
+        		'labelAttributes' => array('icon' => 'fa-folder'),
+        ))->setLabel("Categorias");
+        
         $menu->addChild('post', array(
         		'route' => 'hyundai_kroma_brand_index',
         		'labelAttributes' => array('icon' => 'fa-th'),
         ))->setLabel("Materiales");
-        
+                
         $menu->addChild('user', array(
         		'route' => 'hyundai_kroma_user_index',
         		'labelAttributes' => array('icon' => 'fa-user'),
