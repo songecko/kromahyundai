@@ -37,7 +37,7 @@ class FrontendMenuBuilder
 	        $menu->addChild('brand', array(
 	        		'route' => 'hyundai_kroma_brand_index',
 	        		'labelAttributes' => array('icon' => 'fa-th'),
-	        ))->setLabel("Materiales");
+	        ))->setLabel("Marcas de Autos");
 	        
 	        $menu->addChild('category', array(
 	        		'route' => 'hyundai_kroma_brandresourcecategory_index',
@@ -54,7 +54,7 @@ class FrontendMenuBuilder
     		$menu->addChild('brand_user', array(
     				'route' => 'hyundai_kroma_branduser_index',
     				'labelAttributes' => array('icon' => 'fa-th'),
-    		))->setLabel("Materiales");
+    		))->setLabel("Marcas de Autos");
     	}
     	
         return $menu;
