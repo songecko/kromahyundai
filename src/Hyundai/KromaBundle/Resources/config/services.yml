@@ -4,7 +4,7 @@ parameters:
 services:
     hyundai_kroma.frontend.menu_builder:
         class: Hyundai\KromaBundle\Menu\FrontendMenuBuilder
-        arguments: ["@knp_menu.factory"]
+        arguments: ["@knp_menu.factory", "@security.context"]
         
     hyundai_kroma.frontend.menu.main:
         class: Knp\Menu\MenuItem # the service definition requires setting the class

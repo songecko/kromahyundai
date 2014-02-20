@@ -107,6 +107,7 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Hyundai\KromaBundle\Entity\Brand
+                controller: Hyundai\KromaBundle\Controller\Frontend\BrandController
         hyundai.brandresourcecategory:
             driver: doctrine/orm
             classes:

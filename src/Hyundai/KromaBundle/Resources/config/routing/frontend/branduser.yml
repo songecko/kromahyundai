@@ -1,0 +1,16 @@
+hyundai_kroma_branduser_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: hyundai.controller.brand:indexAction
+        _sylius:
+            template: HyundaiKromaBundle:Frontend/BrandUser:index.html.twig
+            paginate: 100
+
+hyundai_kroma_branduser_show:
+    pattern: /{id}/show
+    methods: [GET]
+    defaults:
+        _controller: hyundai.controller.brand:showAction
+        _sylius:
+            template: HyundaiKromaBundle:Frontend/BrandUser:show.html.twig

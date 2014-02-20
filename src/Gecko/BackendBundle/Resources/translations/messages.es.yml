@@ -4,6 +4,7 @@ sylius:
     save_changes:     "Guardar"
     cancel:           "Cancelar"
     create:           "Crear"
+    show:             "Ver"
     
 gecko.backend:
     meta.title:       "Hyundai - Panel de Administración"

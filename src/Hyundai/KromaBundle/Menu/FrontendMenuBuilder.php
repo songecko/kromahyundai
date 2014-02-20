@@ -3,17 +3,20 @@ namespace Hyundai\KromaBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 
 class FrontendMenuBuilder
 {
     private $factory;
-
+    protected $securityContext;
+    
     /**
      * @param FactoryInterface $factory
      */
-    public function __construct(FactoryInterface $factory)
+    public function __construct(FactoryInterface $factory, SecurityContextInterface $securityContext)
     {
         $this->factory = $factory;
+        $this->securityContext = $securityContext;
     }
 
     public function createMainMenu(Request $request)
@@ -29,21 +32,31 @@ class FrontendMenuBuilder
         		'labelAttributes' => array('icon' => 'fa-dashboard'),
         ))->setLabel("Dashboard");
         
-        $menu->addChild('category', array(
-        		'route' => 'hyundai_kroma_brandresourcecategory_index',
-        		'labelAttributes' => array('icon' => 'fa-folder'),
-        ))->setLabel("Categorias");
-        
-        $menu->addChild('post', array(
-        		'route' => 'hyundai_kroma_brand_index',
-        		'labelAttributes' => array('icon' => 'fa-th'),
-        ))->setLabel("Materiales");
-                
-        $menu->addChild('user', array(
-        		'route' => 'hyundai_kroma_user_index',
-        		'labelAttributes' => array('icon' => 'fa-user'),
-        ))->setLabel("Usuarios");
-        
+        if($this->securityContext->isGranted('ROLE_ADMIN'))
+        {
+	        $menu->addChild('brand', array(
+	        		'route' => 'hyundai_kroma_brand_index',
+	        		'labelAttributes' => array('icon' => 'fa-th'),
+	        ))->setLabel("Materiales");
+	        
+	        $menu->addChild('category', array(
+	        		'route' => 'hyundai_kroma_brandresourcecategory_index',
+	        		'labelAttributes' => array('icon' => 'fa-folder'),
+	        ))->setLabel("Categorias");
+	        
+	                
+	        $menu->addChild('user', array(
+	        		'route' => 'hyundai_kroma_user_index',
+	        		'labelAttributes' => array('icon' => 'fa-user'),
+	        ))->setLabel("Usuarios");
+        }else if($this->securityContext->isGranted('ROLE_USER'))
+    	{
+    		$menu->addChild('brand_user', array(
+    				'route' => 'hyundai_kroma_branduser_index',
+    				'labelAttributes' => array('icon' => 'fa-th'),
+    		))->setLabel("Materiales");
+    	}
+    	
         return $menu;
     }
 }
