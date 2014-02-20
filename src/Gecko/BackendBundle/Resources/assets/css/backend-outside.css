@@ -1,3 +1,7 @@
 .form-box .logo {
 	margin-bottom: 40px;
 }
+
+.form-box .logo img {
+	max-width: 100%;
+}
