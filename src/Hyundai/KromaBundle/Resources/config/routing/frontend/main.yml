@@ -1,9 +1,6 @@
 hyundai_kroma_index:
     pattern: /
-    defaults:
-        _controller: FrameworkBundle:Redirect:redirect
-        route: hyundai_kroma_dashboard
-        permanent: true
+    defaults: { _controller: HyundaiKromaBundle:Frontend/Main:redirectIndexUser }
     
 hyundai_kroma_dashboard:
     pattern: /dashboard

@@ -27,10 +27,10 @@ class FrontendMenuBuilder
             )
         ));
 
-        $menu->addChild('dashboard', array(
+        /*$menu->addChild('dashboard', array(
         		'route' => 'hyundai_kroma_dashboard',
         		'labelAttributes' => array('icon' => 'fa-dashboard'),
-        ))->setLabel("Dashboard");
+        ))->setLabel("Dashboard");*/
         
         if($this->securityContext->isGranted('ROLE_ADMIN'))
         {
