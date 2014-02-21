@@ -38,6 +38,8 @@
   			<source src="{{ asset('media' ~ vich_uploader_asset(resource, 'file')) }}" type="video/mp4">
 		</video>
     	{% endif %}
+    	{{ resource.name }}
+    	<a href="{{ path('hyundai_kroma_branduser_download', {'filename': resource.resource}) }}">Descarga</a>
    		{% endfor %}
 	</div>
 </div>

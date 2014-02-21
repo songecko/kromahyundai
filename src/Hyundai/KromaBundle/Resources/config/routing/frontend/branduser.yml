@@ -14,3 +14,9 @@ hyundai_kroma_branduser_show:
         _controller: hyundai.controller.brand:showAction
         _sylius:
             template: HyundaiKromaBundle:Frontend/BrandUser:show.html.twig
+            
+hyundai_kroma_branduser_download:
+    pattern: /download/{filename}
+    methods: [GET]
+    defaults:
+        _controller: hyundai.controller.brand:downloadAction
