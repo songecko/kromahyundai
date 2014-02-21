@@ -25,22 +25,28 @@
 	</div>
 </div>
 {% for catName, resourcesCategory in resourcesCategories %}
-<div class="box box-info">
+<div class="box box-primary">
 	<div class="box-header">
 		<h3 class="box-title">{{ catName }}</h3>
 	</div>
-	<div class="box-body">
+	<div class="box-body clearfix">
 		{% for resource in resourcesCategory.resources %}
-		<div>
-   			{% if(resource.type == 'image') %}
-			<img src="{{ resource.resource|imagine_filter('gecko_gallery') }}" alt="" style="max-height: 300px" />
-   			{% elseif (resource.type == 'video') %}
-   			<video width="320" height="240" controls>
-  				<source src="{{ asset('media' ~ vich_uploader_asset(resource, 'file')) }}" type="video/mp4">
-			</video>
-    		{% endif %}
-    		<p>{{ resource.name }}</p>
-    		<a href="{{ path('hyundai_kroma_branduser_download', {'filename': resource.resource}) }}">Descarga</a>
+		<div class="box box-solid box-info" style="width: 340px; float: left; margin-right: 30px;">
+			<div class="box-header">
+				<h4 class="box-title">{{ resource.name }}</h4>				
+			</div>
+			<div class="box-body">
+	   			{% if(resource.type == 'image') %}
+				<img src="{{ resource.resource|imagine_filter('gecko_gallery') }}" alt="" style="max-width: 320px" />
+	   			{% elseif (resource.type == 'video') %}
+	   			<video width="320" controls>
+	  				<source src="{{ asset('media' ~ vich_uploader_asset(resource, 'file')) }}" type="video/mp4">
+				</video>
+	    		{% endif %}
+	    		<div>
+	    			<a class="btn btn-app" style="margin: 0 auto; display: block;" href="{{ path('hyundai_kroma_branduser_download', {'filename': resource.resource}) }}" target="_blank"><i class="fa fa-save"></i> Descargar</a>
+	    		</div>
+    		</div>
     	</div>
    		{% endfor %}
 	</div>
