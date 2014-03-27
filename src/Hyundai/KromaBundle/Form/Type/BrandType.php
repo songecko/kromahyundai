@@ -19,7 +19,7 @@ class BrandType extends AbstractType
         ->add('date', 'date', array(
         		'required' => true,
         		'empty_value' => array('year' => 'Año', 'month' => 'Mes', 'day' => 'Dia'),
-        		'format' => 'dd-MMMM-yyyy',
+        		'format' => 'dd-MM-yyyy',
         		'years' => range(date('Y'), date('Y')+10),
         		'label'    => 'Fecha'
         

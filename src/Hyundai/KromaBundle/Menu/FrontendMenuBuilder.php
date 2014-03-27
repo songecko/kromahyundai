@@ -37,12 +37,12 @@ class FrontendMenuBuilder
 	        $menu->addChild('brand', array(
 	        		'route' => 'hyundai_kroma_brand_index',
 	        		'labelAttributes' => array('icon' => 'fa-th'),
-	        ))->setLabel("Marcas de Autos");
+	        ))->setLabel("Productos");
 	        
 	        $menu->addChild('category', array(
 	        		'route' => 'hyundai_kroma_brandresourcecategory_index',
 	        		'labelAttributes' => array('icon' => 'fa-folder'),
-	        ))->setLabel("Categorias");
+	        ))->setLabel("Categorías");
 	        
 	                
 	        $menu->addChild('user', array(
@@ -54,7 +54,7 @@ class FrontendMenuBuilder
     		$menu->addChild('brand_user', array(
     				'route' => 'hyundai_kroma_branduser_index',
     				'labelAttributes' => array('icon' => 'fa-th'),
-    		))->setLabel("Marcas de Autos");
+    		))->setLabel("Productos");
     	}
     	
         return $menu;
