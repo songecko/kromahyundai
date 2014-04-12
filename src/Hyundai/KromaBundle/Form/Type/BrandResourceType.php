@@ -22,15 +22,6 @@ class BrandResourceType extends AbstractType
         ->add('name', 'text', array(
         		'required' => true,
         		'label'    => 'Nombre'
-        ))
-        ->add('file', 'file', array(
-        		'required' => false,
-        		'label'    => 'Recurso'
-        ))
-        ->add('type', 'choice', array(
-        		'required' => true,
-        		'label'    => 'Tipo',
-        		'choices'  => array('image' => 'Imagen', 'video' => 'Video')
         ));
     }
 

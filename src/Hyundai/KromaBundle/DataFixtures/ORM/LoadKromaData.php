@@ -16,6 +16,7 @@ use Hyundai\KromaBundle\Entity\User;
 use Hyundai\KromaBundle\Entity\Brand;
 use Hyundai\KromaBundle\Entity\BrandResourceCategory;
 use Hyundai\KromaBundle\Entity\BrandResource;
+use Hyundai\KromaBundle\Entity\BrandResourceFile;
 
 class LoadKromaData extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
@@ -85,15 +86,10 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	$manager->persist($brand);
     	
     	/** BRAND RESOURCES **/
-    	$path = $this->container->getParameter('kernel.root_dir').'/../web/fixtures/images/prueba.jpg';
-    	$file = new File($path);
-    	
     	$brResCatTV = new BrandResource();
     	$brResCatTV->setCategory($brCatTV);
     	$brResCatTV->setBrand($brand);
     	$brResCatTV->setName($this->faker->word);
-    	$brResCatTV->setResource($file);
-    	$brResCatTV->setType('image');
     		
     	$manager->persist($brResCatTV);
     	
@@ -101,8 +97,6 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	$brResCatPrint->setCategory($brCatPrint);
     	$brResCatPrint->setBrand($brand);
     	$brResCatPrint->setName($this->faker->word);
-    	$brResCatPrint->setResource($file);
-    	$brResCatPrint->setType('image');
     	
     	$manager->persist($brResCatPrint);
     	
@@ -110,10 +104,33 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	$brResCatPhotos->setCategory($brCatPhotos);
     	$brResCatPhotos->setBrand($brand);
     	$brResCatPhotos->setName($this->faker->word);
-    	$brResCatPhotos->setResource($file);
-    	$brResCatPhotos->setType('image');
     	
     	$manager->persist($brResCatPhotos);
+    	
+    	/** BRAND RESOURCE FILES **/
+    	$path = $this->container->getParameter('kernel.root_dir').'/../web/fixtures/images/prueba.jpg';
+    	$file = new File($path);
+    	
+    	$brResFileCatTV = new BrandResourceFile();
+    	$brResFileCatTV->setBrandResource($brResCatTV);
+    	$brResFileCatTV->setResource($file);
+    	$brResFileCatTV->setType('image');
+    	
+    	$manager->persist($brResFileCatTV);
+    	
+    	$brResFileCatPrint = new BrandResourceFile();
+    	$brResFileCatPrint->setBrandResource($brResCatPrint);
+    	$brResFileCatPrint->setResource($file);
+    	$brResFileCatPrint->setType('image');
+    	
+    	$manager->persist($brResFileCatPrint);
+    	
+    	$brResFileCatPhotos = new BrandResourceFile();
+    	$brResFileCatPhotos->setBrandResource($brResCatPhotos);
+    	$brResFileCatPhotos->setResource($file);
+    	$brResFileCatPhotos->setType('image');
+    	 
+    	$manager->persist($brResFileCatPhotos);
     	
     	$manager->flush();
     }

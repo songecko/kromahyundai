@@ -35,18 +35,7 @@
 			<div class="box-header">
 				<h4 class="box-title">{{ resource.name }}</h4>				
 			</div>
-			<div class="box-body">
-	   			{% if(resource.type == 'image') %}
-				<img src="{{ resource.resource|imagine_filter('gecko_gallery') }}" alt="" style="max-width: 320px;display: block;margin: 0 auto;" />
-	   			{% elseif (resource.type == 'video') %}
-	   			<video width="320" controls>
-	  				<source src="{{ asset('media' ~ vich_uploader_asset(resource, 'file')) }}" type="video/mp4">
-				</video>
-	    		{% endif %}
-	    		<div>
-	    			<a class="btn btn-app" style="margin: 0 auto; display: block;" href="{{ path('hyundai_kroma_branduser_download', {'filename': resource.resource}) }}" target="_blank"><i class="fa fa-save"></i> Descargar</a>
-	    		</div>
-    		</div>
+			<a href="{{ path('hyundai_kroma_branduser_files', {'brandresource_id': resource.id}) }}">Ver archivos({{ resource.files|length }})</a>
     	</div>
    		{% endfor %}
 	</div>

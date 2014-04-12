@@ -1,13 +1,17 @@
-Hyundai\KromaBundle\Entity\BrandResource:
+Hyundai\KromaBundle\Entity\BrandResourceFile:
     type: entity
-    table: brand_resource
+    table: brand_resource_file
     fields:
         id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
-        name:
+        resource:
+            type: string
+            length: 255
+            nullable: true
+        type:
             type: string
             length: 255
         createdAt:
@@ -24,21 +28,10 @@ Hyundai\KromaBundle\Entity\BrandResource:
               timestampable:
                 on: update
     manyToOne:
-        brand:
-            targetEntity: Brand
-            inversedBy: resources
+        brandResource:
+            targetEntity: BrandResource
+            inversedBy: files
             joinColumn:
-                name: brand_id
+                name: brandresource_id
                 referencedColumnName: id
                 onDelete: CASCADE
-        category:
-            targetEntity: BrandResourceCategory
-            inversedBy: resources
-            joinColumn:
-                name: category_id
-                referencedColumnName: id
-                onDelete: CASCADE
-    oneToMany:
-        files:
-            targetEntity: BrandResourceFile
-            mappedBy: brandResource

@@ -1,0 +1,21 @@
+<div class="form-group">
+	{{ form_row(form.brandResource, {'value': app.request.get('brandresource_id'), 'attr': {'class': 'form-control'}}) }}
+</div>
+<div class="form-group">
+	{{ form_row(form.type, { 'attr': {'class': 'form-control'} }) }}
+</div>
+<div class="form-group">
+   	{% if(form.vars.value.resource) %}
+   	{%   if(form.vars.value.type == 'image') %}
+	<a href="{{ form.vars.value.resource|imagine_filter('gecko_gallery') }}" target="_blank"><img class="img-polaroid" src="{{ form.vars.value.resource|imagine_filter('gecko_image_90x60') }}" alt="" /></a>
+   	{%   elseif (form.vars.value.type == 'video') %}
+   	<video width="320" height="240" controls>
+  		<source src="{{ asset('media' ~ vich_uploader_asset(form.vars.value, 'file')) }}" type="video/mp4">
+	</video>
+	{%   else %}
+	<p>{{ form.vars.value.resource }}</p>
+    {%   endif %}
+   	{% endif %}
+    {{ form_row(form.file) }}
+</div>
+{{ form_rest(form) }}

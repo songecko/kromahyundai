@@ -4,7 +4,6 @@ namespace Hyundai\KromaBundle\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * BrandResource
@@ -13,11 +12,9 @@ class BrandResource
 {
     private $id;
     private $name;
-    private $resource;
-    private $file;
     private $category;
-    private $type;
     private $brand;
+    private $files;
     private $createdAt;
     private $updatedAt;
 
@@ -28,6 +25,7 @@ class BrandResource
     
     public function __construct()
     {
+    	$this->files = new \Doctrine\Common\Collections\ArrayCollection();
     	$this->createdAt = new DateTime('now');
     }
     
@@ -55,49 +53,6 @@ class BrandResource
     	return $this->category;
     }
     
-    public function setResource($resource)
-    {
-        $this->resource = $resource;
-    
-        return $this;
-    }
-
-    public function getResource()
-    {
-        return $this->resource;
-    }
-    
-    public function hasFile()
-    {
-    	return null !== $this->file;
-    }
-    
-    public function getFile()
-    {
-    	return $this->file;
-    }
-    
-    public function setFile(File $file)
-    {
-    	$this->file = $file;
-    	 
-    	if ($this->resource) {
-    		$this->setUpdatedAt(new \DateTime('now'));
-    	}
-    }
-
-    public function setType($type)
-    {
-        $this->type = $type;
-    
-        return $this;
-    }
-
-    public function getType()
-    {
-        return $this->type;
-    }
-
     public function setBrand(Brand $brand = null)
     {
         $this->brand = $brand;
@@ -108,6 +63,23 @@ class BrandResource
     public function getBrand()
     {
         return $this->brand;
+    }
+    
+    public function addFile(BrandResourceFile $file)
+    {
+    	$this->files[] = $file;
+    
+    	return $this;
+    }
+    
+    public function removeFile(BrandResourceFile $file)
+    {
+    	$this->files->removeElement($file);
+    }
+    
+    public function getFiles()
+    {
+    	return $this->files;
     }
     
     public function setCreatedAt($createdAt)
@@ -132,5 +104,10 @@ class BrandResource
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    
+    public function __toString()
+    {
+    	return $this->getName();
     }
 }

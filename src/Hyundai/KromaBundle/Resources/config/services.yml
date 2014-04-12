@@ -30,6 +30,11 @@ services:
         tags:
             - { name: form.type, alias: hyundai_brandresource }
             
+    hyundai.form.type.brandresourcefile:
+        class: Hyundai\KromaBundle\Form\Type\BrandResourceFileType
+        tags:
+            - { name: form.type, alias: hyundai_brandresourcefile }
+            
     hyundai.form.type.user:
         class: Hyundai\KromaBundle\Form\Type\UserType
         tags:

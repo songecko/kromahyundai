@@ -50,4 +50,20 @@ class BrandController extends ResourceController
     	
     	return $response;
     }
+    
+    public function filesAction($brandresource_id)
+    {
+    	$config = $this->getConfiguration();
+    	
+    	$brandResource = $this->getDoctrine()
+    		->getRepository('HyundaiKromaBundle:BrandResource')
+    		->find($brandresource_id);
+    	
+    	$files = $brandResource->getFiles()->toArray();
+    	
+    	return $this->render($config->getTemplate('files.html'), array(
+    		'brandResource' => $brandResource,
+        	'files' => $files
+        ));
+    }
 }

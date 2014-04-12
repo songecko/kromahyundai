@@ -22,6 +22,10 @@ hyundai_kroma_brandresource:
     resource: @HyundaiKromaBundle/Resources/config/routing/frontend/brandResource.yml
     prefix: /brand/{brand_id}/resources
     
+hyundai_kroma_brandresourcefile:
+    resource: @HyundaiKromaBundle/Resources/config/routing/frontend/brandResourceFile.yml
+    prefix: /resource/{brandresource_id}/files
+    
 hyundai_kroma_user:
     resource: @HyundaiKromaBundle/Resources/config/routing/frontend/user.yml
     prefix: /user

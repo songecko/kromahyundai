@@ -15,6 +15,14 @@ hyundai_kroma_branduser_show:
         _sylius:
             template: HyundaiKromaBundle:Frontend/BrandUser:show.html.twig
             
+hyundai_kroma_branduser_files:
+    pattern: /{brandresource_id}/files
+    methods: [GET]
+    defaults:
+        _controller: hyundai.controller.brand:filesAction
+        _sylius:
+            template: HyundaiKromaBundle:Frontend/BrandUser:files.html.twig
+            
 hyundai_kroma_branduser_download:
     pattern: /download/{filename}
     methods: [GET]

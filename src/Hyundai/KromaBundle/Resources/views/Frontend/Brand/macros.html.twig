@@ -20,7 +20,7 @@
 				<td>{{ brand.id }}</td>
 				<td>{{ brand.title }}</td>
 				<td>{{ brand.date|date('d-m-Y') }}</td>
-				<td><a href="{{ path('hyundai_kroma_brandresource_index', {'brand_id': brand.id}) }}">Administrar recursos</a></td>
+				<td><a href="{{ path('hyundai_kroma_brandresource_index', {'brand_id': brand.id}) }}">Administrar recursos({{ brand.resources|length }})</a></td>
 				<td>
 					<div class="pull-right">
 	                    {{ buttons.edit(path('hyundai_kroma_brand_update', {'id': brand.id})) }}

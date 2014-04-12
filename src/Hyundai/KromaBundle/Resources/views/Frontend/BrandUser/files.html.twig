@@ -1,0 +1,41 @@
+{% extends 'GeckoBackendBundle::layout.html.twig' %}
+
+{% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
+
+{% block section_title %}
+<h1>{{ brandResource.name }}</h1>
+{% endblock %}
+
+{% block breadcrums %}
+<ol class="breadcrumb">
+	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+	<li>Marcas de Autos</li>
+	<li>{{ brandResource.brand }}</li>
+	<li class="active">{{ brandResource.name }}</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="box box-primary">
+	<div class="box-body clearfix">
+		{% for file in files %}
+			<div class="box box-solid box-info" style="width: 340px; float: left;">
+				<div class="box-body">
+					{% if(file.type == 'image') %}
+						<img src="{{ file.resource|imagine_filter('gecko_gallery') }}" alt="" style="max-width: 320px;display: block;margin: 0 auto;" />
+				   	{% elseif (file.type == 'video') %}
+				   		<video width="320" controls>
+				  			<source src="{{ asset('media' ~ vich_uploader_asset(file, 'file')) }}" type="video/mp4">
+						</video>
+					{% else %}
+						<p>{{ file.resource }}</p>
+				    {% endif %}
+				    <div>
+				    	<a class="btn btn-app" style="margin: 0 auto; display: block;" href="{{ path('hyundai_kroma_branduser_download', {'filename': file.resource}) }}" target="_blank"><i class="fa fa-save"></i> Descargar</a>
+				    </div>
+			    </div>
+		   </div>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

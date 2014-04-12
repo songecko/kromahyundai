@@ -1,0 +1,26 @@
+{% extends 'GeckoBackendBundle::layout.html.twig' %}
+
+{% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
+{% from 'GeckoBackendBundle:Macros:misc.html.twig' import pagination %}
+{% from 'HyundaiKromaBundle:Frontend/BrandResourceFile:macros.html.twig' import list  %}
+
+{% block section_title %}
+<h1>Archivos</h1>
+{% endblock %}
+
+{% block breadcrums %}
+<ol class="breadcrumb">
+	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+	<li class="active">Archivos</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<h2 class="page-header">
+	{{ buttons.create(path('hyundai_kroma_brandresourcefile_create', {'brandresource_id': app.request.get('brandresource_id')}), 'Nuevo') }}
+</h2>
+
+{{ list(brandresourcefiles)  }}
+{{ pagination(brandresourcefiles) }}
+
+{% endblock %}
