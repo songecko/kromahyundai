@@ -7,6 +7,10 @@ Hyundai\KromaBundle\Entity\BrandResourceFile:
             id: true
             generator:
                 strategy: AUTO
+        name:
+            type: string
+            length: 255
+            nullable: true
         resource:
             type: string
             length: 255

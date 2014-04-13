@@ -10,17 +10,17 @@
 		<table class="table table-hover"><tbody>
 			<tr>
 				<th>ID</th>
-				<th>Categoria</th>
 				<th>Nombre</th>
+				<th>Categoria</th>
 				<th>Archivos</th>
 				<th></th>
 			</tr>
 			{% for brandresource in brandresources %}
 	        <tr>
 				<td>{{ brandresource.id }}</td>
-				<td>{{ brandresource.category }}</td>
 				<td>{{ brandresource.name }}</td>
-				<td><a href="{{ path('hyundai_kroma_brandresourcefile_index', {'brandresource_id': brandresource.id}) }}">Administrar archivos({{ brandresource.files|length }})</a></td>
+				<td>{{ brandresource.category }}</td>
+				<td><a href="{{ path('hyundai_kroma_brandresourcefile_index', {'brandresource_id': brandresource.id}) }}">Administrar archivos ({{ brandresource.files|length }})</a></td>
 				<td>
 					<div class="pull-right">
 	                    {{ buttons.edit(path('hyundai_kroma_brandresource_update', {'brand_id': brandresource.brand.id, 'id': brandresource.id})) }}

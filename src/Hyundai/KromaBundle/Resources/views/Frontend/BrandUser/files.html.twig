@@ -28,10 +28,10 @@
 				  			<source src="{{ asset('media' ~ vich_uploader_asset(file, 'file')) }}" type="video/mp4">
 						</video>
 					{% else %}
-						<p>{{ file.resource }}</p>
+						<p>{{ file.name }}</p>
 				    {% endif %}
 				    <div>
-				    	<a class="btn btn-app" style="margin: 0 auto; display: block;" href="{{ path('hyundai_kroma_branduser_download', {'filename': file.resource}) }}" target="_blank"><i class="fa fa-save"></i> Descargar</a>
+				    	<a class="btn btn-app" style="margin: 0 auto; display: block;" href="{{ path('hyundai_kroma_brandresourcefile_download', {'id': file.id}) }}"><i class="fa fa-save"></i> Descargar</a>
 				    </div>
 			    </div>
 		   </div>

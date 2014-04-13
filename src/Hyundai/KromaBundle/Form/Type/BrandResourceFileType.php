@@ -11,6 +11,11 @@ class BrandResourceFileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        ->add('name', 'text', array(
+        		'required'    => false,
+        		'disabled'    => true,
+        		'label'    => 'Nombre de archivo'
+        ))
         ->add('brandResource', 'entity', array(
         		'class'    => 'HyundaiKromaBundle:BrandResource',
         		'label'    => 'Recurso'

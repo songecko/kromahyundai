@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "225bfe4c03cd25c7943b677b74a80239",
+    "hash": "ee25d78339632d3ff32cd8bc2374818a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -525,9 +525,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 },
                 {
                     "name": "Symfony Community",
@@ -1902,7 +1900,7 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -2326,9 +2324,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "The base bundle for the Symfony Distributions",
@@ -3004,12 +3000,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dustin10/VichUploaderBundle.git",
-                "reference": "d25ae0c8875e6f0536532fe6aeff67237908cb58"
+                "reference": "3578d59bdc9ee98f17d9c55262c17de269fd1d4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/d25ae0c8875e6f0536532fe6aeff67237908cb58",
-                "reference": "d25ae0c8875e6f0536532fe6aeff67237908cb58",
+                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/3578d59bdc9ee98f17d9c55262c17de269fd1d4a",
+                "reference": "3578d59bdc9ee98f17d9c55262c17de269fd1d4a",
                 "shasum": ""
             },
             "require": {
@@ -3060,7 +3056,7 @@
                 "file uploads",
                 "upload"
             ],
-            "time": "2014-04-10 15:40:14"
+            "time": "2014-04-11 19:42:59"
         },
         {
             "name": "white-october/pagerfanta-bundle",

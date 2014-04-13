@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\File;
 class BrandResourceFile
 {
     private $id;
+    private $name;
     private $resource;
     private $file;
     private $type;
@@ -29,6 +30,24 @@ class BrandResourceFile
     	$this->createdAt = new DateTime('now');
     }
 
+    public function setName($name)
+    {
+    	$this->name = $name;
+    
+    	return $this;
+    }
+    
+    public function getName()
+    {
+    	$name = $this->name;
+    	if(!$name && $this->getResource())
+    	{
+    		$name = $this->getResource();	
+    	}
+    	
+    	return $this->name;
+    }
+    
     public function setResource($resource)
     {
         $this->resource = $resource;
@@ -55,6 +74,11 @@ class BrandResourceFile
     {
     	$this->file = $file;
     	 
+    	if($this->file)
+    	{
+    		$this->setName($this->file->getClientOriginalName());	
+    	}
+    	
     	if ($this->resource) {
     		$this->setUpdatedAt(new \DateTime('now'));
     	}

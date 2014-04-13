@@ -25,7 +25,13 @@ hyundai_kroma_brandresource:
 hyundai_kroma_brandresourcefile:
     resource: @HyundaiKromaBundle/Resources/config/routing/frontend/brandResourceFile.yml
     prefix: /resource/{brandresource_id}/files
-    
+                
+hyundai_kroma_brandresourcefile_download:
+    pattern: /resource/{id}/download
+    methods: [GET]
+    defaults:
+        _controller: hyundai.controller.brandresourcefile:downloadAction
+        
 hyundai_kroma_user:
     resource: @HyundaiKromaBundle/Resources/config/routing/frontend/user.yml
     prefix: /user

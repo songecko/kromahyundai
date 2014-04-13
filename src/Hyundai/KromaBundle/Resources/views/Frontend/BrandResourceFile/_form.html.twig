@@ -1,9 +1,15 @@
 <div class="form-group">
 	{{ form_row(form.brandResource, {'value': app.request.get('brandresource_id'), 'attr': {'class': 'form-control'}}) }}
+	{{ form_row(form._token) }}
 </div>
 <div class="form-group">
 	{{ form_row(form.type, { 'attr': {'class': 'form-control'} }) }}
 </div>
+{% if(form.vars.value.name) %}
+<div class="form-group">
+	{{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+</div>
+{% endif %}
 <div class="form-group">
    	{% if(form.vars.value.resource) %}
    	{%   if(form.vars.value.type == 'image') %}
@@ -13,9 +19,8 @@
   		<source src="{{ asset('media' ~ vich_uploader_asset(form.vars.value, 'file')) }}" type="video/mp4">
 	</video>
 	{%   else %}
-	<p>{{ form.vars.value.resource }}</p>
+	<p><a href="{{ path('hyundai_kroma_brandresourcefile_download', { 'id': form.vars.value.id }) }}">Descargar {{ form.vars.value.name }}</a></p>
     {%   endif %}
    	{% endif %}
     {{ form_row(form.file) }}
 </div>
-{{ form_rest(form) }}
