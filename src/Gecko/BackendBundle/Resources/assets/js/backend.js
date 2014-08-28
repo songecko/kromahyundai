@@ -19,5 +19,33 @@
         });
 
         //$('select').select2();
+        $('.multipleUploadButton').click(function(e)
+        {
+        	e.preventDefault();
+        	
+        	$('.multipleUpload').toggle();
+        });
+        
+        var files = 0;
+        $('#fileupload').fileupload({
+            url: $('#fileupload').data('uploadUrl'),
+            dataType: 'json',
+            done: function (e, data) {
+            	files--;
+                if(files == 0)
+                {
+                	document.location.reload();
+                }
+            },
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .progress-bar').css(
+                    'width',
+                    progress + '%'
+                );
+            }
+        }).bind('fileuploadadd', function (e, data) {
+        	files++;
+        });
     });
 })( jQuery );

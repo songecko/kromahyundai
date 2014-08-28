@@ -2,3 +2,13 @@ body > .header .logo {
 	padding: 0;
 	line-height: 0;
 }
+
+.multipleUpload {
+	display:none;
+	margin-top: 20px;
+	padding: 15px;
+}
+
+.multipleUpload .progress {
+	margin: 0;
+}

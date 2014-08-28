@@ -40,3 +40,9 @@ hyundai_kroma_brandresourcefile_delete:
             redirect: 
                 route: hyundai_kroma_brandresourcefile_index
                 parameters: { brandresource_id: $brandresource_id }
+                
+                
+hyundai_kroma_brandresourcefile_multiple_create:
+    pattern: /multiple-create
+    defaults:
+        _controller: hyundai.controller.brandresourcefile:multipleCreateAction

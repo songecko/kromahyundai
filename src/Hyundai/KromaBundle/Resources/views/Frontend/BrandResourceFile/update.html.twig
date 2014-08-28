@@ -18,7 +18,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="box">
-			<form action="{{ path('hyundai_kroma_brandresourcefile_update', {'brandresource_id': brandresourcefile.brandresource.id, 'id': brandresourcefile.id}) }}" method="post" enctype="multipart/form-data">
+			<form id="fileupload" action="{{ path('hyundai_kroma_brandresourcefile_update', {'brandresource_id': brandresourcefile.brandresource.id, 'id': brandresourcefile.id}) }}" method="post" enctype="multipart/form-data">
 				<div class="box-body">
 					{{ form_errors(form) }}		
 		    		<input type="hidden" name="_method" value="PUT">

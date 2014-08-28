@@ -9,7 +9,6 @@
 	<div class="box-body table-responsive no-padding">
 		<table class="table table-hover"><tbody>
 			<tr>
-				<th>ID</th>
 				<th>Recurso</th>
 				<th>Archivo</th>
 				<th>Tipo</th>
@@ -17,7 +16,6 @@
 			</tr>
 			{% for brandresourcefile in brandresourcefiles %}
 	        <tr>
-				<td>{{ brandresourcefile.id }}</td>
 				<td>{{ brandresourcefile.brandResource }}</td>
 				<td><a href="{{ path('hyundai_kroma_brandresourcefile_download', { 'id': brandresourcefile.id }) }}">Descargar {{ brandresourcefile.name }}</a></td>
 				{% if(brandresourcefile.type == 'image') %}

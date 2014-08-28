@@ -9,7 +9,6 @@
 	<div class="box-body table-responsive no-padding">
 		<table class="table table-hover"><tbody>
 			<tr>
-				<th>ID</th>
 				<th>Nombre</th>
 				<th>Categoria</th>
 				<th>Archivos</th>
@@ -17,7 +16,6 @@
 			</tr>
 			{% for brandresource in brandresources %}
 	        <tr>
-				<td>{{ brandresource.id }}</td>
 				<td>{{ brandresource.name }}</td>
 				<td>{{ brandresource.category }}</td>
 				<td><a href="{{ path('hyundai_kroma_brandresourcefile_index', {'brandresource_id': brandresource.id}) }}">Administrar archivos ({{ brandresource.files|length }})</a></td>

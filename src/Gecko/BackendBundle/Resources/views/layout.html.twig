@@ -12,6 +12,8 @@
                 'http://code.ionicframework.com/ionicons/1.4.1/css/ionicons.min.css'
                 '@GeckoBackendBundle/Resources/assets/css/AdminLTE.css'
                 '@GeckoBackendBundle/Resources/assets/css/backend.css'
+                '@GeckoBackendBundle/Resources/assets/css/jquery.fileupload-ui.css'
+                '@GeckoBackendBundle/Resources/assets/css/jquery.fileupload.css'
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
@@ -57,10 +59,14 @@
         
         {# javascripts... #}
         {% block javascripts %}
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+        
         {% javascripts output='js/backend.min.js'
-            '//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js'
-            '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
             '@GeckoBackendBundle/Resources/assets/js/AdminLTE/app.js'
+            '@GeckoBackendBundle/Resources/assets/js/jquery.iframe-transport.js'
+            '@GeckoBackendBundle/Resources/assets/js/jquery.fileupload.js'
             '@GeckoBackendBundle/Resources/assets/js/backend.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>

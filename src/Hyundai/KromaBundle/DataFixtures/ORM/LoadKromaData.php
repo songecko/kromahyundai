@@ -114,21 +114,18 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	$brResFileCatTV = new BrandResourceFile();
     	$brResFileCatTV->setBrandResource($brResCatTV);
     	$brResFileCatTV->setResource($file);
-    	$brResFileCatTV->setType('image');
     	
     	$manager->persist($brResFileCatTV);
     	
     	$brResFileCatPrint = new BrandResourceFile();
     	$brResFileCatPrint->setBrandResource($brResCatPrint);
     	$brResFileCatPrint->setResource($file);
-    	$brResFileCatPrint->setType('image');
     	
     	$manager->persist($brResFileCatPrint);
     	
     	$brResFileCatPhotos = new BrandResourceFile();
     	$brResFileCatPhotos->setBrandResource($brResCatPhotos);
     	$brResFileCatPhotos->setResource($file);
-    	$brResFileCatPhotos->setType('image');
     	 
     	$manager->persist($brResFileCatPhotos);
     	

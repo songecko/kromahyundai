@@ -23,11 +23,6 @@ class BrandResourceFileType extends AbstractType
         ->add('file', 'file', array(
         		'required' => false,
         		'label'    => 'Archivo'
-        ))
-        ->add('type', 'choice', array(
-        		'required' => true,
-        		'label'    => 'Tipo',
-        		'choices'  => array('image' => 'Imagen', 'video' => 'Video', 'file' => 'Archivo')
         ));
     }
 

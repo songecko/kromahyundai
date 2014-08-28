@@ -4,6 +4,7 @@ namespace Hyundai\KromaBundle\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
@@ -15,7 +16,6 @@ class BrandResourceFile
     private $name;
     private $resource;
     private $file;
-    private $type;
     private $brandResource;
     private $createdAt;
     private $updatedAt;
@@ -73,27 +73,41 @@ class BrandResourceFile
     public function setFile(File $file)
     {
     	$this->file = $file;
-    	 
-    	if($this->file)
+    	
+    	if($this->file instanceof UploadedFile)
     	{
-    		$this->setName($this->file->getClientOriginalName());	
+    		$this->setName($this->file->getClientOriginalName());
     	}
     	
-    	if ($this->resource) {
+    	if ($this->name) {
     		$this->setUpdatedAt(new \DateTime('now'));
     	}
     }
 
-    public function setType($type)
-    {
-        $this->type = $type;
-    
-        return $this;
-    }
-
     public function getType()
     {
-        return $this->type;
+    	$supportedImage = array(
+    		'gif',
+    		'jpg',
+    		'jpeg',
+    		'png'
+    	);
+    	
+    	$supportedVideo = array(
+    		'avi',
+    		'mov',
+    		'mp4',
+    		'm4v'
+    	);
+    	
+    	$ext = strtolower(pathinfo($this->getResource(), PATHINFO_EXTENSION)); // Using strtolower to overcome case sensitive
+    	if (in_array($ext, $supportedImage)) {
+    		return 'image';
+    	} elseif (in_array($ext, $supportedVideo)) {
+    		return 'video';
+    	}
+    	
+        return 'file';
     }
     
     public function setBrandResource(BrandResource $brandResource = null)

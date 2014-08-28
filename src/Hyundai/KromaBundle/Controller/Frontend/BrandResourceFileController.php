@@ -4,6 +4,7 @@ namespace Hyundai\KromaBundle\Controller\Frontend;
 
 use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class BrandResourceFileController extends ResourceController
 {    
@@ -25,5 +26,41 @@ class BrandResourceFileController extends ResourceController
     	$response->setContent($content);
     	
     	return $response;
+    }
+    
+    public function multipleCreateAction($brandresource_id)
+    {
+    	$files = array();
+    	$filesBag = $this->getRequest()->files->all();
+    	$brandResource = $this->getDoctrine()
+    		->getRepository('HyundaiKromaBundle:BrandResource')
+    		->find($brandresource_id);
+    	
+    	if(!$brandResource) return;
+    	if(!isset($filesBag['files'])) return;
+    	
+    	foreach ($filesBag['files'] as $uploadedFile)
+    	{
+	    	$file = new \stdClass();
+	    	$file->name = $uploadedFile->getClientOriginalName();
+	    	$file->size = $uploadedFile->getClientSize();
+	    	$file->type = $uploadedFile->getClientMimeType();
+	    	
+    		//Save to db
+    		$resourceFile = $this->createNew();
+    		$resourceFile->setBrandResource($brandResource);
+    		$resourceFile->setName($file->name);
+    		$resourceFile->setFile($uploadedFile);
+    		
+    		$this->getManager()->persist($resourceFile);
+    		
+	    	$files[] = $file;
+    	}
+    	
+    	$this->getManager()->flush();
+    		
+    	$response = array('files' => $files);
+    	
+    	return JsonResponse::create($response);
     }
 }
