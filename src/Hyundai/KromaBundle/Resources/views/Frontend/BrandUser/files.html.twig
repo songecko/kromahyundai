@@ -3,39 +3,53 @@
 {% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
 
 {% block section_title %}
-<h1>{{ brandResource.name }}</h1>
+<h1>Archivos de '{{ brandResource.name }}' del producto '{{ brandResource.brand.title }}'</h1>
 {% endblock %}
 
 {% block breadcrums %}
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-	<li>Marcas de Autos</li>
+	<li>Productos</li>
 	<li>{{ brandResource.brand }}</li>
 	<li class="active">{{ brandResource.name }}</li>
 </ol>
 {% endblock %}
 
 {% block content %}
+<h2 class="page-header">
+	<a href="{{ path('hyundai_kroma_branduser_download_all', {'brandresource_id': brandResource.id}) }}" class="btn btn-primary">
+    	<i class="icon-plus-sign"></i><span>Descargar todos</span>
+	</a>
+</h2>
 <div class="box box-primary">
-	<div class="box-body clearfix">
+	<div class="box-body table-responsive no-padding">
+		<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Fecha</th>
+				<th>Tipo</th>
+				<th>Tamaño</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
 		{% for file in files %}
-			<div class="box box-solid box-info" style="width: 340px; float: left;">
-				<div class="box-body">
-					{% if(file.type == 'image') %}
-						<img src="{{ file.resource|imagine_filter('gecko_gallery') }}" alt="" style="max-width: 320px;display: block;margin: 0 auto;" />
-				   	{% elseif (file.type == 'video') %}
-				   		<video width="320" controls>
-				  			<source src="{{ asset('media' ~ vich_uploader_asset(file, 'file')) }}" type="video/mp4">
-						</video>
-					{% else %}
-						<p>{{ file.name }}</p>
-				    {% endif %}
-				    <div>
-				    	<a class="btn btn-app" style="margin: 0 auto; display: block;" href="{{ path('hyundai_kroma_brandresourcefile_download', {'id': file.id}) }}"><i class="fa fa-save"></i> Descargar</a>
-				    </div>
-			    </div>
-		   </div>
+			<tr>
+				<td>
+					<img src="{{ asset('bundles/geckobackend/images/filetypes/'~file.type~'.png') }}" alt="" style="max-width: 25px;display: block;float: left;margin: 0 10px 0 0;" />
+					{{ file.name }}
+				</td>
+				<td>{{ file.createdAt|date("d/m/Y") }}</td>
+				<td>Archivo {{ file.extension|upper }}</td>
+				<td>{{ file.size }}</td>
+				<td>
+					<a class="btn btn-app" style="margin: 0 auto; display: block;height: 46px;padding:5px;" href="{{ path('hyundai_kroma_brandresourcefile_download', {'id': file.id}) }}"><i class="fa fa-save"></i> Descargar</a>
+				</td>
+			</tr>
 		{% endfor %}
+		</tbody>
+		</table>
 	</div>
 </div>
 {% endblock %}

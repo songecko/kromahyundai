@@ -11,12 +11,16 @@
 			<tr>
 				<th></th>
 				<th>Título</th>
+				<th>Descripción</th>
+				<th>Cant. de recursos</th>
 				<th></th>
 			</tr>
 			{% for brand in brands %}
 	        <tr>
 				<td></td>
 				<td>{{ brand.title }}</td>
+				<td>{{ brand.description }}</td>
+				<td>{{ brand.resources|length }}</td>
 				<td>
 					<div class="pull-right">
 	                    {{ buttons.show(path('hyundai_kroma_branduser_show', {'id': brand.id})) }}

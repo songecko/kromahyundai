@@ -107,7 +107,52 @@ class BrandResourceFile
     		return 'video';
     	}
     	
-        return 'file';
+        return 'archive';
+    }
+    
+    public function getExtension()
+    {	 
+    	$ext = strtolower(pathinfo($this->getResource(), PATHINFO_EXTENSION)); // Using strtolower to overcome case sensitive
+    	
+    	return $ext;
+    }
+    
+    public function getSize()
+    {
+    	$file = __DIR__."/../../../../web/media/resources/".$this->getResource();
+    	
+    	$bytes = 0;
+    	if(is_file($file))
+    	{
+    		$bytes = filesize(__DIR__."/../../../../web/media/resources/".$this->getResource());
+    	}
+    	
+    	if ($bytes >= 1073741824)
+    	{
+    		$bytes = number_format($bytes / 1073741824, 2) . ' GB';
+    	}
+    	elseif ($bytes >= 1048576)
+    	{
+    		$bytes = number_format($bytes / 1048576, 2) . ' MB';
+    	}
+    	elseif ($bytes >= 1024)
+    	{
+    		$bytes = number_format($bytes / 1024, 2) . ' KB';
+    	}
+    	elseif ($bytes > 1)
+    	{
+    		$bytes = $bytes . ' bytes';
+    	}
+    	elseif ($bytes == 1)
+    	{
+    		$bytes = $bytes . ' byte';
+    	}
+    	else
+    	{
+    		$bytes = '0 bytes';
+    	}
+    	
+    	return $bytes;
     }
     
     public function setBrandResource(BrandResource $brandResource = null)

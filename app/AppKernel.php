@@ -28,8 +28,7 @@ class AppKernel extends Kernel
         	new Vich\UploaderBundle\VichUploaderBundle(),
         	new Liip\ImagineBundle\LiipImagineBundle(),
             new Hyundai\KromaBundle\HyundaiKromaBundle(),
-        	new Gecko\BackendBundle\GeckoBackendBundle(),
-        	new PunkAve\FileUploaderBundle\PunkAveFileUploaderBundle(),
+        	new Gecko\BackendBundle\GeckoBackendBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
