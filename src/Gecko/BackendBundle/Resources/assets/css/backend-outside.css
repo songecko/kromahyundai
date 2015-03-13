@@ -8,10 +8,35 @@ body {
 	background-size: cover;	
 }
 
+.form-box {
+  margin: 10px auto 0 auto;
+}
+
 .form-box .logo {
 	margin-bottom: 40px;
 }
 
 .form-box .logo img {
 	max-width: 100%;
+}
+
+.form-box .header {
+	background: #0f2b5b;
+	font-size: 18px;
+  	padding: 10px;
+}
+
+.form-box .body > .form-group, .form-box .footer > .form-group {
+	margin-top: 5px;
+  	margin-bottom: 5px;
+}
+
+.form-box .body > .btn, .form-box .footer > .btn {
+	background: #0f2b5b;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+.form-box .footer {
+	padding: 5px 50px;
 }
