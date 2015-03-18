@@ -5,19 +5,19 @@
 {% from 'HyundaiKromaBundle:Frontend/Brand:macros.html.twig' import list  %}
 
 {% block section_title %}
-<h1>Productos</h1>
+<h1>Products</h1>
 {% endblock %}
 
 {% block breadcrums %}
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-	<li class="active">Productos</li>
+	<li class="active">Products</li>
 </ol>
 {% endblock %}
 
 {% block content %}
 <h2 class="page-header">
-	{{ buttons.create(path('hyundai_kroma_brand_create'), 'Nuevo') }}
+	{{ buttons.create(path('hyundai_kroma_brand_create'), 'New') }}
 </h2>
 
 {{ list(brands)  }}

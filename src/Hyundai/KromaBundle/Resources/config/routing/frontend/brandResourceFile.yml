@@ -43,6 +43,6 @@ hyundai_kroma_brandresourcefile_delete:
                 
                 
 hyundai_kroma_brandresourcefile_multiple_create:
-    pattern: /multiple-create
+    pattern: /multiple-upload
     defaults:
         _controller: hyundai.controller.brandresourcefile:multipleCreateAction

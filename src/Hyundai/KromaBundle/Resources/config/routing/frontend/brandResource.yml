@@ -5,10 +5,13 @@ hyundai_kroma_brandresource_index:
         _controller: hyundai.controller.brandresource:indexAction
         _sylius:
             template: HyundaiKromaBundle:Frontend/BrandResource:index.html.twig
-            paginate: 100
-            criteria:
-                brand: $brand_id
-            
+
+hyundai_kroma_brandresource_editor:
+    pattern: /editor
+    methods: [POST]
+    defaults:
+        _controller: hyundai.controller.brandresource:editorAction
+                            
 hyundai_kroma_brandresource_create:
     pattern: /new
     methods: [GET, POST]
@@ -40,3 +43,9 @@ hyundai_kroma_brandresource_delete:
             redirect: 
                 route: hyundai_kroma_brandresource_index
                 parameters: { brand_id: $brand_id }
+                
+hyundai_kroma_branduser_download_all:
+    pattern: /{id}/download-all
+    methods: [GET]
+    defaults:
+        _controller: hyundai.controller.brandresource:downloadAllAction

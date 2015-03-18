@@ -32,30 +32,23 @@ class FrontendMenuBuilder
         		'labelAttributes' => array('icon' => 'fa-dashboard'),
         ))->setLabel("Dashboard");*/
         
+        $menu->addChild('resources', array(
+        		'route' => 'hyundai_kroma_brandresource_index',
+        		'labelAttributes' => array('icon' => 'fa-th'),
+        ))->setLabel("Resources");
+        
         if($this->securityContext->isGranted('ROLE_ADMIN'))
-        {
-	        $menu->addChild('brand', array(
-	        		'route' => 'hyundai_kroma_brand_index',
-	        		'labelAttributes' => array('icon' => 'fa-th'),
-	        ))->setLabel("Productos");
-	        
-	        $menu->addChild('category', array(
+        {        
+	        /*$menu->addChild('category', array(
 	        		'route' => 'hyundai_kroma_brandresourcecategory_index',
 	        		'labelAttributes' => array('icon' => 'fa-folder'),
-	        ))->setLabel("Categorías");
-	        
+	        ))->setLabel("Categories");*/	        
 	                
 	        $menu->addChild('user', array(
 	        		'route' => 'hyundai_kroma_user_index',
 	        		'labelAttributes' => array('icon' => 'fa-user'),
-	        ))->setLabel("Usuarios");
-        }else if($this->securityContext->isGranted('ROLE_USER'))
-    	{
-    		$menu->addChild('brand_user', array(
-    				'route' => 'hyundai_kroma_branduser_index',
-    				'labelAttributes' => array('icon' => 'fa-th'),
-    		))->setLabel("Productos");
-    	}
+	        ))->setLabel("Users");
+        }
     	
         return $menu;
     }

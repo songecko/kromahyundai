@@ -3,14 +3,14 @@
 {% from 'SyliusResourceBundle:Macros:actions.html.twig' import create %}
 
 {% block section_title %}
-<h1>Archivos</h1>
+<h1>Files</h1>
 {% endblock %}
 
 {% block breadcrums %}
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-	<li><a href="{{ path('hyundai_kroma_brandresourcefile_index', {'brandresource_id': app.request.get('brandresource_id')}) }}">Archivos</a></li>
-	<li class="active">Nuevo</li>
+	<li><a href="{{ path('hyundai_kroma_brandresourcefile_index', {'brandresource_id': app.request.get('brandresource_id')}) }}">Files</a></li>
+	<li class="active">New</li>
 </ol>
 {% endblock %}
 

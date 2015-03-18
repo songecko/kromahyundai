@@ -13,7 +13,7 @@ class BrandType extends AbstractType
         $builder
         ->add('title', 'text', array(
         		'required' => true,
-        		'label'    => 'Titulo'
+        		'label'    => 'Title'
         
         ))
         ->add('date', 'date', array(
@@ -21,12 +21,12 @@ class BrandType extends AbstractType
         		'empty_value' => array('year' => 'Año', 'month' => 'Mes', 'day' => 'Dia'),
         		'format' => 'dd-MM-yyyy',
         		'years' => range(date('Y'), date('Y')+10),
-        		'label'    => 'Fecha'
+        		'label'    => 'Date'
         
         ))
         ->add('description', 'textarea', array(
         		'required' => true,
-        		'label'    => 'Descripcion'
+        		'label'    => 'Description'
         
         ));
     }

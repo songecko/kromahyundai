@@ -8,29 +8,9 @@
 <div class="box">
 	<div class="box-body table-responsive no-padding">
 		<table class="table table-hover"><tbody>
-			<tr>
-				<th>Recurso</th>
-				<th>Archivo</th>
-				<th>Tipo</th>
-				<th></th>
-			</tr>
 			{% for brandresourcefile in brandresourcefiles %}
 	        <tr>
-				<td>{{ brandresourcefile.brandResource }}</td>
 				<td><a href="{{ path('hyundai_kroma_brandresourcefile_download', { 'id': brandresourcefile.id }) }}">Descargar {{ brandresourcefile.name }}</a></td>
-				{% if(brandresourcefile.type == 'image') %}
-				<td>Imagen</td>
-				{% elseif(brandresourcefile.type == 'video') %}
-				<td>Video</td>
-				{% else %}
-				<td>Archivo</td>
-				{% endif %}
-				<td>
-					<div class="pull-right">
-	                    {{ buttons.edit(path('hyundai_kroma_brandresourcefile_update', {'brandresource_id': brandresourcefile.brandresource.id, 'id': brandresourcefile.id})) }}
-	                    {{ buttons.delete(path('hyundai_kroma_brandresourcefile_delete', {'brandresource_id': brandresourcefile.brandresource.id, 'id': brandresourcefile.id})) }}
-	                </div>
-				</td>
 			</tr>
 	        {% endfor %}
 		</tbody></table>

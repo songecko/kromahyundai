@@ -1,0 +1,5 @@
+<ul>
+	{% for file in files %}
+	<li data-jstree='{"icon":"{{ file.iconType }}"}' data-type="file" data-id="{{ file.id }}">{{ file.name }}</li>
+	{% endfor %}
+</ul>

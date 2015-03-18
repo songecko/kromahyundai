@@ -13,7 +13,7 @@ class BrandResourceCategoryType extends AbstractType
         $builder
         ->add('name', 'text', array(
         		'required' => true,
-        		'label'    => 'Nombre'
+        		'label'    => 'Name'
         ));
     }
 

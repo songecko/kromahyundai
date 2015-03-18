@@ -110,6 +110,24 @@ class BrandResourceFile
         return 'archive';
     }
     
+    public function getIconType()
+    {
+    	$iconClass = 'fa fa-file-archive-o';
+    	switch ($this->getType())
+    	{
+    		case 'image':
+    			$iconClass = 'fa fa-file-image-o';
+    			break;
+    		case 'video':
+    			$iconClass = 'fa fa-file-video-o';
+    			break;
+    		default:
+    			$iconClass = 'fa fa-file-archive-o';
+    	}
+    	
+    	return $iconClass;
+    }
+    
     public function getExtension()
     {	 
     	$ext = strtolower(pathinfo($this->getResource(), PATHINFO_EXTENSION)); // Using strtolower to overcome case sensitive

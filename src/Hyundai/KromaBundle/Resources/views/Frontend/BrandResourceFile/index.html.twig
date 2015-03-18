@@ -5,28 +5,27 @@
 {% from 'HyundaiKromaBundle:Frontend/BrandResourceFile:macros.html.twig' import list  %}
 
 {% block section_title %}
-<h1>Archivos</h1>
+<h1>Files</h1>
 {% endblock %}
 
 {% block breadcrums %}
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-	<li class="active">Archivos</li>
+	<li class="active">Files</li>
 </ol>
 {% endblock %}
 
 {% block content %}
 <h2 class="page-header">
-	{{ buttons.create(path('hyundai_kroma_brandresourcefile_create', {'brandresource_id': app.request.get('brandresource_id')}), 'Nuevo') }}
 	<a href="#" class="btn btn-primary multipleUploadButton">
-    	<i class="icon-plus-sign"></i><span>Subida múltiple</span>
+    	<i class="icon-plus-sign"></i><span>Multiple upload</span>
 	</a>
 	
 	<div class="multipleUpload well">
 		<!-- The fileinput-button span is used to style the file input field as button -->
 	    <span class="btn btn-success fileinput-button">
 	        <i class="glyphicon glyphicon-plus"></i>
-	        <span>Seleccionar archivos...</span>
+	        <span>Select files...</span>
 	        <!-- The file input field used as target for the file upload widget -->
 	        <input id="fileupload" type="file" name="files[]" data-upload-url="{{ path('hyundai_kroma_brandresourcefile_multiple_create', {'brandresource_id': app.request.get('brandresource_id')}) }}" multiple>
 	    </span>

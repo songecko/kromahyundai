@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: doctrine_extensions.yml }
 
 framework:
     #esi:             ~
@@ -59,6 +60,13 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+        mappings:
+            gedmo_tree:
+                type: annotation
+                prefix: Gedmo\Tree\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -115,6 +123,7 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Hyundai\KromaBundle\Entity\BrandResource
+                controller: Hyundai\KromaBundle\Controller\Frontend\BrandResourceController
         hyundai.brandresourcefile:
             driver: doctrine/orm
             classes:

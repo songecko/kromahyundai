@@ -51,40 +51,6 @@ class BrandController extends ResourceController
     	return $response;
     }
     
-    public function downloadAllAction($brandresource_id)
-    {
-    	$brandResource = $this->getDoctrine()
-    	->getRepository('HyundaiKromaBundle:BrandResource')
-    	->find($brandresource_id);
-    	 
-    	$path = $this->get('kernel')->getRootDir(). "/../web/media/resources/";
-    	 
-    	$zip = new \ZipArchive();
-    	$zipName = $brandResource->getName().".zip";
-    	$zip->open($path.$zipName,  \ZipArchive::OVERWRITE);
-    	 
-    	foreach ($brandResource->getFiles() as $file)
-    	{
-    		$filename = $file->getResource();
-    		if(is_file($path.$filename))
-    		{
-    			$zip->addFile($path.$filename, $file->getName());
-    		}
-    	}
-    	$zip->close();
-    	 
-    	$response = new Response();
-    
-    	//set headers
-    	$response->headers->set('Content-Type', 'application/zip');
-    	$response->headers->set('Content-Disposition', 'attachment;filename="'.$zipName);
-    
-    	$content = file_get_contents($path.$zipName);
-    	$response->setContent($content);
-    
-    	return $response;
-    }
-    
     public function filesAction($brandresource_id)
     {
     	$config = $this->getConfiguration();

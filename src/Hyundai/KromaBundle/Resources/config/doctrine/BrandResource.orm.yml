@@ -1,6 +1,10 @@
 Hyundai\KromaBundle\Entity\BrandResource:
     type: entity
     table: brand_resource
+    repositoryClass: Gedmo\Tree\Entity\Repository\NestedTreeRepository
+    gedmo:
+        tree:
+            type: nested
     fields:
         id:
             type: integer
@@ -10,6 +14,23 @@ Hyundai\KromaBundle\Entity\BrandResource:
         name:
             type: string
             length: 255
+        lft:
+            type: integer
+            gedmo:
+                - treeLeft
+        rgt:
+            type: integer
+            gedmo:
+                - treeRight
+        root:
+            type: integer
+            nullable: true
+            gedmo:
+                - treeRoot
+        lvl:
+            type: integer
+            gedmo:
+                - treeLevel
         createdAt:
             column: created_at
             type: datetime
@@ -24,21 +45,21 @@ Hyundai\KromaBundle\Entity\BrandResource:
               timestampable:
                 on: update
     manyToOne:
-        brand:
-            targetEntity: Brand
-            inversedBy: resources
+        parent:
+            targetEntity: BrandResource
+            inversedBy: children
             joinColumn:
-                name: brand_id
+                name: parent_id
                 referencedColumnName: id
                 onDelete: CASCADE
-        category:
-            targetEntity: BrandResourceCategory
-            inversedBy: resources
-            joinColumn:
-                name: category_id
-                referencedColumnName: id
-                onDelete: CASCADE
+            gedmo:
+                - treeParent
     oneToMany:
+        children:
+            targetEntity: BrandResource
+            mappedBy: parent
+            orderBy:
+                lft: ASC
         files:
             targetEntity: BrandResourceFile
             mappedBy: brandResource

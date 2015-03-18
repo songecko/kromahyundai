@@ -13,15 +13,15 @@ class BrandResourceType extends AbstractType
         $builder
         ->add('brand', 'entity', array(
         		'class'    => 'HyundaiKromaBundle:Brand',
-        		'label'    => 'Producto'
+        		'label'    => 'Product'
         ))
         ->add('category', 'entity', array(
         		'class'    => 'HyundaiKromaBundle:BrandResourceCategory',
-        		'label'    => 'Categoria'
+        		'label'    => 'Category'
         ))
         ->add('name', 'text', array(
         		'required' => true,
-        		'label'    => 'Nombre'
+        		'label'    => 'Name'
         ));
     }
 

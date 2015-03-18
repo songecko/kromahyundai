@@ -28,6 +28,26 @@ class BrandResourceFileController extends ResourceController
     	return $response;
     }
     
+    public function previewAction()
+    {
+    	$brandResourceFile = $this->findOr404();
+    	$request = $this->get('request');
+    	 
+    	$filename = $brandResourceFile->getResource();
+    	$path = $this->get('kernel')->getRootDir(). "/../web/media/resources/";
+    	$content = file_get_contents($path.$filename);
+    	 
+    	$response = new Response();
+    	 
+    	//set headers
+    	$response->headers->set('Content-Type', 'image/jpeg');
+    	//$response->headers->set('Content-Disposition', 'attachment;filename="'.$brandResourceFile->getName());
+    	 
+    	$response->setContent($content);
+    	 
+    	return $response;
+    }
+    
     public function multipleCreateAction($brandresource_id)
     {
     	$files = array();

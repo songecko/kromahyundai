@@ -2,25 +2,39 @@
 
 {% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
 {% from 'GeckoBackendBundle:Macros:misc.html.twig' import pagination %}
-{% from 'HyundaiKromaBundle:Frontend/BrandResource:macros.html.twig' import list  %}
 
 {% block section_title %}
-<h1>Recursos</h1>
+<h1>Resources</h1>
 {% endblock %}
 
 {% block breadcrums %}
 <ol class="breadcrumb">
 	<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-	<li class="active">Recursos</li>
+	<li class="active">Resources</li>
 </ol>
 {% endblock %}
 
 {% block content %}
-<h2 class="page-header">
-	{{ buttons.create(path('hyundai_kroma_brandresource_create', {'brand_id': app.request.get('brand_id')}), 'Nuevo') }}
-</h2>
 
-{{ list(brandresources)  }}
-{{ pagination(brandresources) }}
+<div class="loading">
+	<i class="fa fa-cog fa-spin"></i>
+</div>
+
+ <div id="resourcesTree" data-editor-url="{{ path('hyundai_kroma_brandresource_editor') }}" data-user-type="{{ is_granted('ROLE_ADMIN')?'admin':'client' }}">
+ 	{{ include('HyundaiKromaBundle:Frontend/BrandResource:resources.html.twig', { 'resource': rootResource }) }}
+ </div>
+
+<div class="modal fade" id="previewModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        		<h4 class="modal-title">Preview</h4>
+      		</div>
+      		<div class="modal-body">
+      		</div>
+    	</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 {% endblock %}

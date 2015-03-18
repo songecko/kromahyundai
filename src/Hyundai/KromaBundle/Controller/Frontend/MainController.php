@@ -13,11 +13,11 @@ class MainController extends Controller
     
     public function redirectIndexUserAction()
     {
-    	if($this->get('security.context')->isGranted('ROLE_ADMIN'))
-    	{
-    		return $this->redirect($this->generateUrl('hyundai_kroma_brand_index'));
-    	}else {
+    	/*if($this->get('security.context')->isGranted('ROLE_ADMIN'))
+    	{*/
+    		return $this->redirect($this->generateUrl('hyundai_kroma_brandresource_index'));
+    	/*}else {
     		return $this->redirect($this->generateUrl('hyundai_kroma_branduser_index'));
-    	}
+    	}*/
     }
 }

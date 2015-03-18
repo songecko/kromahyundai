@@ -28,9 +28,3 @@ hyundai_kroma_branduser_download:
     methods: [GET]
     defaults:
         _controller: hyundai.controller.brand:downloadAction
-        
-hyundai_kroma_branduser_download_all:
-    pattern: /{brandresource_id}/download-all
-    methods: [GET]
-    defaults:
-        _controller: hyundai.controller.brand:downloadAllAction

@@ -1,3 +1,7 @@
+html, body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'modern_hmedium', sans-serif;
+}
+
 body > .header .logo {
 	padding: 0;
 	line-height: 0;
@@ -11,4 +15,29 @@ body > .header .logo {
 
 .multipleUpload .progress {
 	margin: 0;
+}
+
+.loading {
+	height: 20px;	
+}
+
+.loading i {
+	display: none;	
+	font-size: 20px;
+}
+
+footer {
+	position: fixed;
+  	bottom: 0;
+  	width: 100%;
+  	padding: 10px;
+  	background: #f4f4f4;
+  	-webkit-box-shadow: inset 2px 8px -4px rgba(0, 0, 0, 0.1);
+  	-moz-box-shadow: inset 2px 8px -4px rgba(0, 0, 0, 0.1);
+  	box-shadow: inset 0px 2px 8px -4px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+	margin: 0 0 0 20px;
+	text-align: center;
 }

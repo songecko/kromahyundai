@@ -1,0 +1,12 @@
+<ul>
+	<li{{ not resource.parent?' class="jstree-open"':'' }} data-id="{{ resource.id }}" data-type="{{ not resource.parent?'root':'folder' }}">{{ resource.name }}
+		{% if(resource.children|length > 0) %}
+		{% for resource in resource.children %}
+		{{ include('HyundaiKromaBundle:Frontend/BrandResource:resources.html.twig', { 'resource': resource }) }}
+		{% endfor %}
+		{% endif %}
+		{% if(resource.files|length > 0) %}
+		{{ include('HyundaiKromaBundle:Frontend/BrandResource:files.html.twig', { 'files': resource.files }) }}
+		{% endif %}
+	</li>
+</ul>

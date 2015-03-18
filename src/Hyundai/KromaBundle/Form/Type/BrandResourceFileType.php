@@ -14,15 +14,15 @@ class BrandResourceFileType extends AbstractType
         ->add('name', 'text', array(
         		'required'    => false,
         		'disabled'    => true,
-        		'label'    => 'Nombre de archivo'
+        		'label'    => 'Filename'
         ))
         ->add('brandResource', 'entity', array(
         		'class'    => 'HyundaiKromaBundle:BrandResource',
-        		'label'    => 'Recurso'
+        		'label'    => 'Resource'
         ))
         ->add('file', 'file', array(
         		'required' => false,
-        		'label'    => 'Archivo'
+        		'label'    => 'File'
         ));
     }
 

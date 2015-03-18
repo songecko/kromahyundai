@@ -13,7 +13,7 @@ class UserType extends AbstractType
         $builder
         ->add('username', 'text', array(
         		'required' => true,
-        		'label'    => 'Nombre Usuario'
+        		'label'    => 'Username'
         ))
         ->add('email', 'text', array(
         		'required' => true,
@@ -25,11 +25,11 @@ class UserType extends AbstractType
         ))
         ->add('firstName', 'text', array(
         		'required' => true,
-        		'label'    => 'Nombre'
+        		'label'    => 'First name'
         ))
         ->add('lastName', 'text', array(
         		'required' => true,
-        		'label'    => 'Apellido'
+        		'label'    => 'Last name'
         ));
     }
 

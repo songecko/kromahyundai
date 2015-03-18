@@ -12,8 +12,15 @@ class BrandResource
 {
     private $id;
     private $name;
-    private $category;
-    private $brand;
+    
+    /** TREE **/
+    private $lft;
+    private $lvl;
+    private $rgt;
+    private $root;
+    private $parent;
+    private $children;
+    
     private $files;
     private $createdAt;
     private $updatedAt;
@@ -27,6 +34,21 @@ class BrandResource
     {
     	$this->files = new \Doctrine\Common\Collections\ArrayCollection();
     	$this->createdAt = new DateTime('now');
+    }
+    
+    public function setParent(BrandResource $parent = null)
+    {
+    	$this->parent = $parent;
+    }
+    
+    public function getParent()
+    {
+    	return $this->parent;
+    }
+    
+    public function getChildren()
+    {
+    	return $this->children;
     }
     
     public function setName($name)

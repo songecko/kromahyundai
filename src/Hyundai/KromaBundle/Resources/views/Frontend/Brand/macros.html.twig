@@ -9,16 +9,16 @@
 	<div class="box-body table-responsive no-padding">
 		<table class="table table-hover"><tbody>
 			<tr>
-				<th>Título</th>
-				<th>Fecha</th>
-				<th>Recursos</th>
+				<th>Title</th>
+				<th>Date</th>
+				<th>Resources</th>
 				<th></th>
 			</tr>
 			{% for brand in brands %}
 	        <tr>
 				<td>{{ brand.title }}</td>
 				<td>{{ brand.date|date('d-m-Y') }}</td>
-				<td><a href="{{ path('hyundai_kroma_brandresource_index', {'brand_id': brand.id}) }}">Administrar recursos ({{ brand.resources|length }})</a></td>
+				<td><a href="{{ path('hyundai_kroma_brandresource_index', {'brand_id': brand.id}) }}">Manage resources ({{ brand.resources|length }})</a></td>
 				<td>
 					<div class="pull-right">
 	                    {{ buttons.edit(path('hyundai_kroma_brand_update', {'id': brand.id})) }}

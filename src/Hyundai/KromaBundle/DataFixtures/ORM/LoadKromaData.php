@@ -65,7 +65,7 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	$manager->persist($user1);
     	
     	/** BRAND RESOURCE CATEGORIES **/
-    	$brCatTV = new BrandResourceCategory();
+    	/*$brCatTV = new BrandResourceCategory();
     	$brCatTV->setName('TV');
     	$manager->persist($brCatTV);
     	
@@ -75,58 +75,65 @@ class LoadKromaData extends AbstractFixture implements FixtureInterface, Contain
     	
     	$brCatPhotos = new BrandResourceCategory();
     	$brCatPhotos->setName('Photos');
-    	$manager->persist($brCatPhotos);
+    	$manager->persist($brCatPhotos);*/
     	
     	/** BRANDS **/
-    	$brand = new Brand();
+    	/*$brand = new Brand();
     	$brand->setTitle($this->faker->word);
     	$brand->setDate(new \DateTime("now"));
     	$brand->setDescription($this->faker->text);
     	
-    	$manager->persist($brand);
+    	$manager->persist($brand);*/
     	
     	/** BRAND RESOURCES **/
-    	$brResCatTV = new BrandResource();
-    	$brResCatTV->setCategory($brCatTV);
-    	$brResCatTV->setBrand($brand);
-    	$brResCatTV->setName($this->faker->word);
-    		
-    	$manager->persist($brResCatTV);
+    	$root = new BrandResource();
+    	$root->setName("Root");
+    	$manager->persist($root);
     	
-    	$brResCatPrint = new BrandResource();
-    	$brResCatPrint->setCategory($brCatPrint);
-    	$brResCatPrint->setBrand($brand);
-    	$brResCatPrint->setName($this->faker->word);
+    	$productPictures = new BrandResource();
+    	//$brResCatTV->setCategory($brCatTV);
+    	//$brResCatTV->setBrand($brand);
+    	$productPictures->setName("Product Pictures");
+    	$productPictures->setParent($root);
+    	$manager->persist($productPictures);
     	
-    	$manager->persist($brResCatPrint);
+    	$santaFe = new BrandResource();
+    	//$brResCatPrint->setCategory($brCatPrint);
+    	//$brResCatPrint->setBrand($brand);
+    	$santaFe->setName("Santa Fe");
+    	$santaFe->setParent($productPictures);    	
+    	$manager->persist($santaFe);
     	
-    	$brResCatPhotos = new BrandResource();
-    	$brResCatPhotos->setCategory($brCatPhotos);
-    	$brResCatPhotos->setBrand($brand);
-    	$brResCatPhotos->setName($this->faker->word);
+    	$santaFeBackground = new BrandResource();
+    	$santaFeBackground->setName("Background");
+    	$santaFeBackground->setParent($santaFe);
+    	$manager->persist($santaFeBackground);
     	
-    	$manager->persist($brResCatPhotos);
+    	$santaFeWithoutBack = new BrandResource();
+    	$santaFeWithoutBack->setName("Without Background");
+    	$santaFeWithoutBack->setParent($santaFe);
+    	$manager->persist($santaFeWithoutBack);
     	
     	/** BRAND RESOURCE FILES **/
     	$path = $this->container->getParameter('kernel.root_dir').'/../web/fixtures/images/prueba.jpg';
     	$file = new File($path);
     	
     	$brResFileCatTV = new BrandResourceFile();
-    	$brResFileCatTV->setBrandResource($brResCatTV);
+    	$brResFileCatTV->setBrandResource($santaFeBackground);
     	$brResFileCatTV->setResource($file);
-    	
+    	$brResFileCatTV->setName('prueba.jpg');
     	$manager->persist($brResFileCatTV);
     	
     	$brResFileCatPrint = new BrandResourceFile();
-    	$brResFileCatPrint->setBrandResource($brResCatPrint);
+    	$brResFileCatPrint->setBrandResource($santaFeWithoutBack);
     	$brResFileCatPrint->setResource($file);
-    	
+    	$brResFileCatPrint->setName('prueba.jpg');
     	$manager->persist($brResFileCatPrint);
     	
     	$brResFileCatPhotos = new BrandResourceFile();
-    	$brResFileCatPhotos->setBrandResource($brResCatPhotos);
+    	$brResFileCatPhotos->setBrandResource($santaFe);
     	$brResFileCatPhotos->setResource($file);
-    	 
+    	$brResFileCatPhotos->setName('prueba.jpg');
     	$manager->persist($brResFileCatPhotos);
     	
     	$manager->flush();

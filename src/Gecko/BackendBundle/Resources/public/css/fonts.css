@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'modern_hbold';
+    src: url('../fonts/ModernH-Bold-webfont.eot');
+    src: url('../fonts/ModernH-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ModernH-Bold-webfont.woff2') format('woff2'),
+         url('../fonts/ModernH-Bold-webfont.woff') format('woff'),
+         url('../fonts/ModernH-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/ModernH-Bold-webfont.svg#modern_hbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'modern_hecolight';
+    src: url('../fonts/ModernH-EcoLight-webfont.eot');
+    src: url('../fonts/ModernH-EcoLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ModernH-EcoLight-webfont.woff2') format('woff2'),
+         url('../fonts/ModernH-EcoLight-webfont.woff') format('woff'),
+         url('../fonts/ModernH-EcoLight-webfont.ttf') format('truetype'),
+         url('../fonts/ModernH-EcoLight-webfont.svg#modern_hecolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'modern_hlight';
+    src: url('../fonts/ModernH-Light-webfont.eot');
+    src: url('../fonts/ModernH-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ModernH-Light-webfont.woff2') format('woff2'),
+         url('../fonts/ModernH-Light-webfont.woff') format('woff'),
+         url('../fonts/ModernH-Light-webfont.ttf') format('truetype'),
+         url('../fonts/ModernH-Light-webfont.svg#modern_hlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'modern_hmedium';
+    src: url('../fonts/ModernH-Medium-webfont.eot');
+    src: url('../fonts/ModernH-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ModernH-Medium-webfont.woff2') format('woff2'),
+         url('../fonts/ModernH-Medium-webfont.woff') format('woff'),
+         url('../fonts/ModernH-Medium-webfont.ttf') format('truetype'),
+         url('../fonts/ModernH-Medium-webfont.svg#modern_hmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,80 @@
+sylius:
+    edit:             "Edit"
+    delete:           "Delete"
+    save_changes:     "Save"
+    cancel:           "Cancel"
+    create:           "Create"
+    show:             "Show"
+    
+gecko.backend:
+    meta.title:       "Hyundai - Administration panel"
+    dashboard:
+        header:       "Hyundai"
+        subheader:    "Administration panel"
+        
+    show:             "Show"
+    edit:             "Edit"
+    create:           "Create"
+    delete:           "Delete"
+    generate:         "Generate"
+    filter:           "Filter"
+    save_changes:     "Save"
+    cancel:           "Cancel"
+    yes:              "Yes"
+    no:               "No"
+    no_results:       "No results"
+    
+    id:               "ID"
+    title:            "Title"
+    date:             "Date"
+    created_at:       "Created at"
+    
+    alert:
+        success:      "Success"
+        info:         "Information"
+        error:        "Error"
+        warning:      "Warning"
+    
+    gallery:
+        previous:     "Previous"
+        next:         "Next"
+        slideshow:    "Play"
+  
+    breadcrumb:
+        new:           "Nuew"
+        edit:          "Edit"
+        post.index:   "Post"
+        subbrand.index:   "Subpost"
+        business.index: "Business"
+        newitem.index:   "News"
+        slider.index:   "Slider"
+        
+    post:
+        index_header:  "Post"
+        update_header: "Edit post"
+        create_header: "New post"
+
+    subbrand:
+        index_header:  "Sub Marcas"
+        update_header: "Editar sub marca"
+        create_header: "Nueva sub marca"
+        
+    business:
+        index_header:  "Empresas"
+        update_header: "Editar empresa"
+        create_header: "Nueva empresa"
+
+    newitem:
+        index_header:  "Noticias"
+        update_header: "Editar noticia"
+        create_header: "Nueva noticia"
+
+    slider:
+        index_header:  "Slider de Inicio"
+        update_header: "Editar slider"
+        create_header: "Nuevo slider"
+
+    sv:
+        index_header:  "Valores Compartidos"
+        update_header: "Editar valor compartido"
+        create_header: "Nuevo valor compartido"
