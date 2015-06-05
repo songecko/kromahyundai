@@ -22,7 +22,8 @@ class BrandResourceController extends ResourceController
     
     public function editorAction(Request $request)
     {
-    	$repo = $this->getRepo();
+    	$resourceType = $request->get('type', 'folder');
+    	$repo = $this->getRepo($resourceType);
     	
     	try {
     		
@@ -98,8 +99,9 @@ class BrandResourceController extends ResourceController
     	return $resource;
     }
     
-    private function getRepo()
+    private function getRepo($resourceType = 'folder')
     {
-    	return $this->getManager()->getRepository('Hyundai\KromaBundle\Entity\BrandResource');
+    	$entityType = $resourceType=='folder'?'Hyundai\KromaBundle\Entity\BrandResource':'Hyundai\KromaBundle\Entity\BrandResourceFile';
+    	return $this->getManager()->getRepository($entityType);
     }
 }

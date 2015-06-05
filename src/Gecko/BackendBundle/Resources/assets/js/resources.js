@@ -40,12 +40,12 @@ var editor = function($)
 	
 	var _deleteNode = function(node, successCallback)
 	{
-		_send({'action': 'delete', 'id': node.data.id}, successCallback)
+		_send({'action': 'delete', 'id': node.data.id, 'type': node.data.type}, successCallback)
 	}
 	
 	var _renameNode = function(node, successCallback)
 	{
-		_send({'action': 'rename', 'id': node.data.id, 'text': node.text}, successCallback)
+		_send({'action': 'rename', 'id': node.data.id, 'text': node.text, 'type': node.data.type}, successCallback)
 	}
 	
 	return {
@@ -164,7 +164,7 @@ var editor = function($)
     						});
     					}
     					
-    					if($node.data.type != undefined && ($node.data.type == 'folder'/* || $node.data.type == 'file'*/)  && userType == 'admin')
+    					if($node.data.type != undefined && ($node.data.type == 'folder' || $node.data.type == 'file')  && userType == 'admin')
     					{    						
 							var actions = $.extend(actions, {
 	    			            "Rename": {
